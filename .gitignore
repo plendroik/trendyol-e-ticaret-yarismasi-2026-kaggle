@@ -31,3 +31,7 @@ venv.bak/
 
 # Model outputs/logs
 catboost_info/
+*.log
+
+# Embedding cache
+emb/
