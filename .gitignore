@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data files (Kaggle datasets)
+*.csv
+*.parquet
+*.npy
+*.pkl
+best_threshold.txt
+
+# Artifacts and outputs
+artifacts/
+models/
+submission.csv
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+.gemini/
+
+# Model outputs/logs
+catboost_info/
