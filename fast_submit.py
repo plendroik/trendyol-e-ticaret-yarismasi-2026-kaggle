@@ -36,6 +36,8 @@ except Exception:
 # ----------------------------------------------------------------------------- config
 DATA_DIR = r"C:\Users\ASUS\Desktop\trendyol"
 EMB_DIR = os.path.join(DATA_DIR, "emb")
+ART_DIR = os.path.join(DATA_DIR, "artifacts")
+os.makedirs(ART_DIR, exist_ok=True)
 SEED = 42
 N_FOLDS = 5
 TFIDF_MAX_FEATURES = 50000
@@ -360,9 +362,11 @@ def main():
 
     # ---- CV train
     oof = np.zeros(len(y), dtype=np.float64)
+    fold_arr = np.full(len(y), -1, dtype=np.int8)
     models = []
     gkf = GroupKFold(n_splits=N_FOLDS)
     for fold, (tr, va) in enumerate(gkf.split(Xtr, y, groups)):
+        fold_arr[va] = fold
         log(f"Fold {fold+1}/{N_FOLDS} train={len(tr)} val={len(va)}")
         lgbm = lgb.LGBMClassifier(objective="binary", n_estimators=400,
                                   learning_rate=0.05, num_leaves=63,
@@ -390,6 +394,20 @@ def main():
                  key=lambda x: -x[1])
     log(f"  LGBM importances: {imp}")
 
+    # ---- save training artifacts (identical pairs/folds for the cross-encoder + blend)
+    log("Saving training artifacts...")
+    term_id_arr = terms["term_id"].to_numpy()
+    item_id_arr = items["item_id"].to_numpy()
+    pairs_df = pd.DataFrame({
+        "term_id": term_id_arr[t_idx],
+        "item_id": item_id_arr[i_idx],
+        "label": y.astype(np.int8),
+        "fold": fold_arr,
+    })
+    pairs_df.to_parquet(os.path.join(ART_DIR, "train_pairs.parquet"), index=False)
+    np.save(os.path.join(ART_DIR, "gbdt_oof.npy"), oof.astype(np.float32))
+    log(f"  saved train_pairs ({len(pairs_df)}) + gbdt_oof to {ART_DIR}")
+
     # ---- test
     log("Mapping test pairs to indices...")
     term_idx = struct["term_idx"]; item_idx = struct["item_idx"]
@@ -405,6 +423,8 @@ def main():
     for lgbm, cb in models:
         probs += lgbm.predict_proba(Xte)[:, 1] / (2 * len(models))
         probs += cb.predict_proba(Xte)[:, 1] / (2 * len(models))
+    np.save(os.path.join(ART_DIR, "gbdt_test.npy"), probs.astype(np.float32))
+    log(f"  saved gbdt_test ({len(probs)}) to {ART_DIR}")
     preds = (probs >= thr).astype(int)
     preds[miss] = 0  # unmappable -> irrelevant
 
