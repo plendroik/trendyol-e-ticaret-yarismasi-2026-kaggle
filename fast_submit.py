@@ -356,7 +356,20 @@ def main():
     struct["i_emb"] = i_emb
 
     # ---- training data
-    t_idx, i_idx, y = sample_negatives(train, struct, Xn, Qn)
+    use_existing = os.environ.get("USE_EXISTING_PAIRS") == "1"
+    preset_fold = None
+    if use_existing:
+        pp = os.path.join(ART_DIR, "train_pairs.parquet")
+        log(f"Loading existing pairs from {pp}")
+        ppdf = pd.read_parquet(pp)
+        term_idx = struct["term_idx"]; item_idx = struct["item_idx"]
+        t_idx = ppdf["term_id"].map(term_idx).to_numpy().astype(np.int64)
+        i_idx = ppdf["item_id"].map(item_idx).to_numpy().astype(np.int64)
+        y = ppdf["label"].to_numpy().astype(np.int8)
+        preset_fold = ppdf["fold"].to_numpy().astype(np.int8)
+        log(f"  loaded {len(y)} pairs  pos_rate={y.mean():.3f}")
+    else:
+        t_idx, i_idx, y = sample_negatives(train, struct, Xn, Qn)
     groups = t_idx.copy()
     Xtr = make_features(t_idx, i_idx, struct, Xn, Qn, tag="train")
 
@@ -364,8 +377,11 @@ def main():
     oof = np.zeros(len(y), dtype=np.float64)
     fold_arr = np.full(len(y), -1, dtype=np.int8)
     models = []
-    gkf = GroupKFold(n_splits=N_FOLDS)
-    for fold, (tr, va) in enumerate(gkf.split(Xtr, y, groups)):
+    if preset_fold is not None:
+        splits = [(np.where(preset_fold != f)[0], np.where(preset_fold == f)[0]) for f in range(N_FOLDS)]
+    else:
+        splits = list(GroupKFold(n_splits=N_FOLDS).split(Xtr, y, groups))
+    for fold, (tr, va) in enumerate(splits):
         fold_arr[va] = fold
         log(f"Fold {fold+1}/{N_FOLDS} train={len(tr)} val={len(va)}")
         lgbm = lgb.LGBMClassifier(objective="binary", n_estimators=400,
@@ -396,17 +412,18 @@ def main():
 
     # ---- save training artifacts (identical pairs/folds for the cross-encoder + blend)
     log("Saving training artifacts...")
-    term_id_arr = terms["term_id"].to_numpy()
-    item_id_arr = items["item_id"].to_numpy()
-    pairs_df = pd.DataFrame({
-        "term_id": term_id_arr[t_idx],
-        "item_id": item_id_arr[i_idx],
-        "label": y.astype(np.int8),
-        "fold": fold_arr,
-    })
-    pairs_df.to_parquet(os.path.join(ART_DIR, "train_pairs.parquet"), index=False)
+    if not use_existing:
+        term_id_arr = terms["term_id"].to_numpy()
+        item_id_arr = items["item_id"].to_numpy()
+        pairs_df = pd.DataFrame({
+            "term_id": term_id_arr[t_idx],
+            "item_id": item_id_arr[i_idx],
+            "label": y.astype(np.int8),
+            "fold": fold_arr,
+        })
+        pairs_df.to_parquet(os.path.join(ART_DIR, "train_pairs.parquet"), index=False)
     np.save(os.path.join(ART_DIR, "gbdt_oof.npy"), oof.astype(np.float32))
-    log(f"  saved train_pairs ({len(pairs_df)}) + gbdt_oof to {ART_DIR}")
+    log(f"  saved gbdt_oof to {ART_DIR} (use_existing={use_existing})")
 
     # ---- test
     log("Mapping test pairs to indices...")

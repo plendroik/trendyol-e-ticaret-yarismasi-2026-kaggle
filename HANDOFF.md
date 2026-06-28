@@ -4,26 +4,25 @@
 
 ---
 
-## 1. ŞU AN NEREDEYİZ (güncel)
+## 1. ŞU AN NEREDEYİZ (29 Haziran gecesi sonu)
 
-- **Görev:** (arama terimi, ürün) çifti için **binary alaka** (1=alakalı, 0=alakasız). Metrik: **macro-F1**. Submission: `id,prediction` (0/1).
-- **Eğittiğimiz modeller ve HOLDOUT macro-F1 (fold-4, görülmemiş terimler):**
-  | Model | Holdout macro-F1 |
-  |------|------------------|
-  | Leksikal-only GBDT | 0.831 |
-  | GBDT + `emb_cos` (Trendyol embedding cosine) | 0.874 |
-  | Cross-encoder BERTurk (tek) | 0.900 |
-  | **Stacked blend (GBDT + BERTurk)** | **0.906** |
-- **GERÇEK LB (public):** `submission_blend.csv` → **0.76**. (Arkadaşın eski en iyisi 0.75.)
+- **Görev:** (arama terimi, ürün) çifti için **binary alaka**. Metrik: **macro-F1**. Submission: `id,prediction` (0/1).
+- **EN İYİ LB (public) = 0.80** → `submission_easyCE_p33.csv` (= **kolay-negatif Cross-Encoder TEK BAŞINA**, %33 pozitife kalibre). Final seçimine işaretli olmalı.
+- **LB geçmişi (yön bunlardan çıktı):**
+  | Submission | pos_rate | LB |
+  |-----------|----------|-----|
+  | Eski GBDT+CE kolay blend | 0.327 | 0.76 |
+  | Zor-negatif blend | 0.14 / 0.47 | 0.64 / 0.68 |
+  | all-ones (prevalans probu) | 1.0 | **0.41** |
+  | **Kolay CE TEK BAŞINA** | **0.33** | **0.80** ✅ |
 
-## 2. 🔴 EN ÖNEMLİ BULGU — holdout 0.906 ama LB 0.76 (0.15 uçurum)
+## 2. 🔴 BU GECENİN ÜÇ KRİTİK BULGUSU
 
-**Bu bir bug değil, dağılım uyumsuzluğu.** Kök sebep: **eğitim negatiflerimiz çok kolay.**
-- Biz rastgele + TF-IDF orta-sıra negatif kullandık → model bunları kolay ayırıyor → holdout 0.90.
-- Ama test bir **reranking** seti: her sorgu için ~104 aday (Trendyol arama motorunun getirdiği, sorguyla zaten benzeşen ürünler). Testteki "alakasız"lar **zor negatif.**
-- Model hiç zor negatif görmedi → testte alakasızları reddedemiyor → 0.76. Holdout serap. Arkadaşın da aynı duvardan 0.75'te takıldı.
+1. **TEST %69.5 POZİTİF (çoğunluk).** all-ones=0.41 → P=0.41/(1−0.41)=0.695. Eğitimimiz ~%18 pozitifti → model "pozitif nadir" sanıp az tahmin ediyor. **Doğru kalibrasyon (~%33 pozitif tahmin) tek başına 0.76→0.80 sıçramasının yarısı.** Optimal tahmin oranı ~%33-40 (daha fazlası DÜŞÜRÜYOR: 0.47→0.68; macro-F1 azınlık negatif sınıfı eşit ağırlıkladığı için %70'e çıkma).
+2. **ZOR NEGATİFLER LB'DE İŞE YARAMADI.** Embedding-ANN hard negatif + denoising re-mining → LB 0.64-0.68, kolay negatiften (0.76-0.80) DAHA KÖTÜ. Sebep: test pozitif-çoğunluk; benzer ürünler çoğunlukla ALAKALI, ama biz modele "benzer=alakasız" öğrettik → önyargılı. **Offline harness (diagnose/holdout) bizi yanılttı çünkü pozitif-nadir varsaydı.** Holdout skorlarına GÜVENME; sadece LB.
+3. **CROSS-ENCODER YILDIZ, GBDT SEYRELTİYOR.** Kolay CE tek başına (0.80) > GBDT+CE blend (0.76). GBDT'yi at ya da çok düşük ağırlık ver.
 
-➡️ **Çözüm = negatifleri teste benzet:** embedding-ANN ile her sorgunun en yakın ürünlerinden hard negatif üret + false-negative filtresi. Bu hem modeli gerçekten öğretir hem threshold'u doğru kalibre eder. **Asıl 0.76→0.83+ sıçraması burada.** (Detay: `tarama.md` §2.)
+➡️ **DOĞRU YÖN: CE merkezli, kolay/temsili negatif, doğru kalibrasyon, CE-only ensemble.** (Zor negatif DEĞİL.)
 
 ## 3. KRİTİK VERİ GERÇEKLERİ
 
@@ -38,18 +37,28 @@
 | `fast_submit.py` | GBDT pipeline: Türkçe normalize → TF-IDF hard negatif → leksikal/yapısal + `emb_cos` feature → 5-fold LGBM+CatBoost → `submission.csv`. **Artifact kaydeder** (`artifacts/`): `train_pairs.parquet` (term_id,item_id,label,fold), `gbdt_oof.npy`, `gbdt_test.npy`. ~5 dk. |
 | `gen_embeddings.py` | Trendyol embedding modeliyle vektörler (checkpoint'li, GPU ~25 dk). `emb/` içine yazar. |
 | `train_cross_encoder.py` | **Parametrik cross-encoder** (HF + manuel PyTorch, AMP). `train_pairs.parquet`'i okur (aynı negatif/fold). Yapısal alanları serialize eder. `--model --suffix --epochs --max_len ...`. Çıktı: `artifacts/ce_holdout_<suffix>.npy`, `ce_test_<suffix>.npy`, `ce_model_<suffix>/`. BERTurk ~45 dk. |
-| `blend.py` | Tüm `ce_*` + GBDT skorlarını otomatik toplar, holdout'u A/B'ye bölüp stacking (LogisticRegression) + threshold kalibre eder. Çıktı: `submission_blend.csv` (stacked), `submission_robust.csv` (en iyi tek model). |
-| `tarama.md` | Strateji playbook'u. Oku. |
-| `src/` | Eski (yiğit) polars pipeline. Referans; `fast_submit.py` daha temiz. |
+| `blend.py` | Tüm `ce_*` + GBDT skorlarını toplar, stacking + threshold. (DİKKAT: holdout yanıltıyor — bkz §2.) |
+| `score_test.py` | Kaydedilmiş bir CE modelini test setinde skorlar (ayrı temiz süreç, küçük batch → VRAM güvenli). `--ce_model --suffix --basic_docs`. |
+| `calibrate_submit.py` | Test skorlarını hedef pos_rate'lere kalibre edip submission yazar (en önemli araç — prevalans!). |
+| `diagnose_hard_val.py` | (ARŞİV) zor-eval harness'i — pozitif-nadir varsaydığı için YANILTTI. Kullanma. |
+| `gen_hard_negatives.py`, `remine_negatives.py`, `calibrate_by_prevalence.py` | (ARŞİV) zor-negatif yönü — LB'de başarısız oldu. |
+| `tarama.md` | Strateji playbook'u. NOT: "test reranking/zor negatif" varsayımı LB'de YANLIŞ çıktı (test %70 pozitif). |
+| `src/` | Eski (yiğit) polars pipeline. Referans. |
 
 > ⚠️ `artifacts/`, `emb/`, `*.csv`, `*.npy` gitignore'da — repoda yok. Devralan kişi `gen_embeddings.py` + `fast_submit.py` çalıştırıp yeniden üretir.
 
-## 5. SIRADAKİ İŞ (öncelik sırası) — ASIL DEĞER
+## 5. YARIN — DOĞRU YÖN (taze 5 submission)
 
-1. **🔴 Zor negatifler (embedding-ANN) + retrain.** `emb/item_emb.npy` + `query_emb.npy` hazır. Her train sorgusu için en yakın ~150 ürünü çek (brute-force GPU matmul ya da FAISS), pozitifleri çıkar, rank ~5-150'yi hard negatif yap, false-negative filtresi (emb-sim > 0.95×max_pozitif_sim olanı at — NV-Retriever). Yeni `train_pairs.parquet` yaz → `fast_submit.py` (GBDT) + `train_cross_encoder.py` yeniden çalıştır → `blend.py`. **0.76 duvarını bu kırar.**
-2. **🔴 LB prevalans probe.** 1 submission `all-ones` → macro-F1 formülünden test pozitif oranını çöz → threshold'u o orana göre kilitle. (`tarama.md` §5.)
-3. **🟠 Daha çok backbone:** mDeBERTa-v3 (DİKKAT: bu GPU'da batch 64'te yavaş/throttle — batch 16-24 + grad-accum kullan), XLM-R, Türkçe ELECTRA. Çeşitlilik + seed.
-4. **🟢 2 final submission:** biri robust tek model, biri max blend.
+> Prevalans (0.695) ve "CE-only + kolay negatif" yönü artık LB ile KANITLI. Zor-negatif yönüne DÖNME.
+
+1. **🔴 Kolay CE'yi yeniden üret + optimal oranı bul.** En iyimiz `submission_easyCE_p33.csv` (0.80) = `ce_model_berturk` (KOLAY negatiflerle eğitilen ilk CE) tek başına, %33 pozitif. Onu %28 ve %38'de gönder → optimal oranı haritala (belki >0.80).
+   - Not: kolay CE skorları `artifacts/_stale_easy/ce_test_berturk.npy`'de. Kolay negatif üretimi: `fast_submit.py`'ı **USE_EXISTING_PAIRS olmadan** çalıştır (kendi rastgele+TF-IDF negatiflerini deterministik üretir, seed 42).
+2. **🔴 CE-only ensemble.** `train_cross_encoder.py` ile KOLAY negatif `train_pairs` üzerinde 2-3 güçlü CE eğit (farklı seed/epoch/max_len; istersen XLM-R / ConvBERT-tr çeşitliliği). **GBDT'yi blend'e KATMA** (seyreltiyor). Test skorlarını ortalayıp ~%33'e kalibre et.
+3. **🟠 Daha güçlü tek CE:** kolay neg + zengin girdi (build_docs rich) + 3 epoch.
+4. **Kalibrasyon her zaman:** `calibrate_submit.py` ile hedef pos_rate ~0.30-0.40 arası üret. Holdout'a GÜVENME (yanıltıyor), sadece LB eğrisine (0.327→0.76, 0.33→0.80, 0.47→0.68).
+5. **2 final:** en iyi tek CE + en iyi CE-ensemble.
+
+**Denenip ELENENLER (tekrarlama):** zor/embedding-ANN negatif, denoising re-mining, GBDT'yi blend'e katmak, holdout skoruna güvenmek, prevalansı düşük (~%13) sanmak.
 
 ## 6. ORTAM
 
@@ -64,19 +73,19 @@
 
 ```
 Trendyol Datathon 2026 Kaggle (arama terimi–ürün alaka, binary, macro-F1).
-Repo: trendyol-e-ticaret-yarismasi-2026-kaggle. Önce HANDOFF.md ve tarama.md oku.
+Repo: trendyol-e-ticaret-yarismasi-2026-kaggle. Önce HANDOFF.md §1-2-5 oku.
 
-Durum: GBDT+emb ve BERTurk cross-encoder eğittik. Holdout blend 0.906 AMA public
-LB sadece 0.76 — çünkü eğitim negatiflerimiz (rastgele + TF-IDF) test reranking
-setinin zor negatiflerine benzemiyor (HANDOFF §2). Asıl iş bunu düzeltmek.
+Kanıtlanmış durum (LB ile): EN İYİ = kolay-negatif Cross-Encoder TEK BAŞINA,
+%33 pozitife kalibre -> LB 0.80. Test %69.5 POZİTİF (all-ones probu). Zor negatif
+ve GBDT'yi blend'e katmak DENENDİ, LB'de KÖTÜ (HANDOFF §2). Holdout YANILTIYOR,
+sadece LB'ye güven.
 
-Yapmanı istediğim (sırayla):
-1. Tüm script'lerdeki DATA_DIR'ı bu makinedeki CSV klasörüne ayarla.
-2. emb/ yoksa: python gen_embeddings.py (GPU, checkpoint'li).
-3. HANDOFF §5.1'i uygula: embedding-ANN ile ZOR negatifler üret (item_emb/query_emb
-   kullan), false-negative filtreli; yeni artifacts/train_pairs.parquet yaz.
-   Sonra fast_submit.py (use-existing-pairs modu eklemen gerekebilir) + 
-   train_cross_encoder.py + blend.py ile yeniden eğit/blend.
-4. LB prevalans probe (all-ones) ile threshold'u kalibre et.
-GPU var (RTX 5070 Ti). Her adımda önce kısa plan söyle, sonra uygula.
+Bugün (taze 5 submission), HANDOFF §5'i uygula:
+1. emb/ yoksa python gen_embeddings.py. Kolay negatif train_pairs için
+   fast_submit.py'ı USE_EXISTING_PAIRS OLMADAN çalıştır.
+2. train_cross_encoder.py ile KOLAY negatif üzerinde 2-3 güçlü CE eğit
+   (farklı seed/epoch; GBDT'yi blend'e KATMA). score_test.py ile test skorla.
+3. calibrate_submit.py ile pos_rate ~0.30-0.40 arası submission üret, gönder,
+   optimal oranı bul. CE-only ensemble'ı kalibre et.
+GPU var (RTX 5070 Ti, 12.8GB). Her adımda önce kısa plan söyle, sonra uygula.
 ```

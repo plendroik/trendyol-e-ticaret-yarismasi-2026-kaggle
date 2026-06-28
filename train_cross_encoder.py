@@ -43,24 +43,29 @@ def log(m):
     print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)
 
 
-_COLOR_RE = re.compile(r"renk:\s*([^,]+)")
-_MAT_RE = re.compile(r"materyal:\s*([^,]+)")
+# Discriminative attribute keys to surface (front-loaded so truncation keeps them)
+_ATTR_KEYS = ["renk", "materyal", "desen", "kumaş tipi", "ortam", "stil",
+              "kol tipi", "yaka tipi", "boy", "kalıp"]
+_ATTR_RE = {k: re.compile(re.escape(k) + r":\s*([^,]+)") for k in _ATTR_KEYS}
 
 
 def build_docs(items):
     titles = items["title"].fillna("").astype(str).tolist()
     brands = items["brand"].fillna("").astype(str).tolist()
     cats = items["category"].fillna("").astype(str).tolist()
+    genders = items["gender"].fillna("").astype(str).tolist()
+    ages = items["age_group"].fillna("").astype(str).tolist()
     attrs = items["attributes"].fillna("").astype(str).tolist()
     docs = []
-    for t, b, c, a in zip(titles, brands, cats, attrs):
-        leaf = c.split("/")[-1] if c else ""
+    for t, b, c, g, ag, a in zip(titles, brands, cats, genders, ages, attrs):
+        cat_full = c.replace("/", " > ") if c else ""
         al = a.lower()
-        cm = _COLOR_RE.search(al)
-        mm = _MAT_RE.search(al)
-        color = cm.group(1).strip() if cm else ""
-        mat = mm.group(1).strip() if mm else ""
-        docs.append(f"{t} . marka {b} kategori {leaf} renk {color} materyal {mat}")
+        parts = [f"{t}", f"marka {b}", f"kategori {cat_full}", f"{g} {ag}"]
+        for k in _ATTR_KEYS:
+            m = _ATTR_RE[k].search(al)
+            if m:
+                parts.append(f"{k} {m.group(1).strip()}")
+        docs.append(" . ".join(parts))
     return docs
 
 
@@ -119,6 +124,7 @@ def main():
     ap.add_argument("--infer_batch", type=int, default=256)
     ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--max_train", type=int, default=0, help="cap training rows (0=all)")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed); np.random.seed(args.seed)
@@ -141,6 +147,10 @@ def main():
 
     tr_idx = np.where(pfold != HOLDOUT_FOLD)[0]
     ho_idx = np.where(pfold == HOLDOUT_FOLD)[0]
+    if args.max_train and len(tr_idx) > args.max_train:
+        rng = np.random.RandomState(args.seed)
+        tr_idx = np.sort(rng.choice(tr_idx, args.max_train, replace=False))
+        log(f"subsampled train rows -> {len(tr_idx)} (prevalence preserved in expectation)")
     log(f"train rows={len(tr_idx)}  holdout rows={len(ho_idx)}")
 
     tokenizer = AutoTokenizer.from_pretrained(args.model)
@@ -180,6 +190,11 @@ def main():
     os.makedirs(mdir, exist_ok=True)
     model.save_pretrained(mdir); tokenizer.save_pretrained(mdir)
     log(f"Saved model -> {mdir}")
+
+    # free optimizer/grad memory before inference (prevents VRAM thrashing)
+    del opt, sched, scaler
+    model.zero_grad(set_to_none=True)
+    import gc; gc.collect(); torch.cuda.empty_cache()
 
     log("Scoring holdout fold...")
     ho_q = [pq[i] for i in ho_idx]; ho_d = [pdoc[i] for i in ho_idx]
