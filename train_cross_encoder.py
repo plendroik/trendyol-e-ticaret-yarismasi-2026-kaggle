@@ -49,7 +49,12 @@ _ATTR_KEYS = ["renk", "materyal", "desen", "kumaş tipi", "ortam", "stil",
 _ATTR_RE = {k: re.compile(re.escape(k) + r":\s*([^,]+)") for k in _ATTR_KEYS}
 
 
-def build_docs(items):
+_C = re.compile(r"renk:\s*([^,]+)"); _M = re.compile(r"materyal:\s*([^,]+)")
+
+
+def build_docs(items, rich=True):
+    """rich=True: full category path + many attributes. rich=False: the basic
+    serialization that produced the LB-0.80 model (title+brand+leaf+renk+materyal)."""
     titles = items["title"].fillna("").astype(str).tolist()
     brands = items["brand"].fillna("").astype(str).tolist()
     cats = items["category"].fillna("").astype(str).tolist()
@@ -58,14 +63,20 @@ def build_docs(items):
     attrs = items["attributes"].fillna("").astype(str).tolist()
     docs = []
     for t, b, c, g, ag, a in zip(titles, brands, cats, genders, ages, attrs):
-        cat_full = c.replace("/", " > ") if c else ""
         al = a.lower()
-        parts = [f"{t}", f"marka {b}", f"kategori {cat_full}", f"{g} {ag}"]
-        for k in _ATTR_KEYS:
-            m = _ATTR_RE[k].search(al)
-            if m:
-                parts.append(f"{k} {m.group(1).strip()}")
-        docs.append(" . ".join(parts))
+        if rich:
+            cat_full = c.replace("/", " > ") if c else ""
+            parts = [f"{t}", f"marka {b}", f"kategori {cat_full}", f"{g} {ag}"]
+            for k in _ATTR_KEYS:
+                m = _ATTR_RE[k].search(al)
+                if m:
+                    parts.append(f"{k} {m.group(1).strip()}")
+            docs.append(" . ".join(parts))
+        else:
+            leaf = c.split("/")[-1] if c else ""
+            cm = _C.search(al); mm = _M.search(al)
+            docs.append(f"{t} . marka {b} kategori {leaf} renk {cm.group(1).strip() if cm else ''} "
+                        f"materyal {mm.group(1).strip() if mm else ''}")
     return docs
 
 
@@ -94,6 +105,27 @@ def make_collate(tokenizer, has_label, max_len):
             enc["labels"] = torch.tensor(ys, dtype=torch.long)
         return enc
     return collate
+
+
+class FGM:
+    """Fast Gradient Method: perturb the word-embedding weights along their
+    gradient to smooth decision boundaries (better cold-start generalization)."""
+    def __init__(self, model, eps=1.0, emb_name="word_embeddings"):
+        self.model = model; self.eps = eps; self.emb_name = emb_name; self.backup = {}
+
+    def attack(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad and self.emb_name in name and param.grad is not None:
+                self.backup[name] = param.data.clone()
+                norm = torch.norm(param.grad)
+                if norm != 0 and not torch.isnan(norm):
+                    param.data.add_(self.eps * param.grad / norm)
+
+    def restore(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad and self.emb_name in name and name in self.backup:
+                param.data = self.backup[name]
+        self.backup = {}
 
 
 @torch.no_grad()
@@ -125,6 +157,9 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max_train", type=int, default=0, help="cap training rows (0=all)")
+    ap.add_argument("--fgm", action="store_true", help="FGM adversarial training on embeddings")
+    ap.add_argument("--fgm_eps", type=float, default=1.0)
+    ap.add_argument("--basic_docs", action="store_true", help="basic serialization (LB-0.80 recipe)")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed); np.random.seed(args.seed)
@@ -138,7 +173,7 @@ def main():
     terms = pd.read_csv(os.path.join(DATA_DIR, "terms.csv"))
     items = pd.read_csv(os.path.join(DATA_DIR, "items.csv"))
     term2q = dict(zip(terms["term_id"], terms["query"].fillna("").astype(str)))
-    item2doc = dict(zip(items["item_id"], build_docs(items)))
+    item2doc = dict(zip(items["item_id"], build_docs(items, rich=not args.basic_docs)))
 
     pq = pairs["term_id"].map(term2q).fillna("").tolist()
     pdoc = pairs["item_id"].map(item2doc).fillna("").tolist()
@@ -166,8 +201,9 @@ def main():
     sched = get_linear_schedule_with_warmup(opt, int(0.06 * total_steps), total_steps)
     scaler = torch.cuda.amp.GradScaler()
     loss_fn = torch.nn.CrossEntropyLoss()
+    fgm = FGM(model, eps=args.fgm_eps) if args.fgm else None
 
-    log(f"Training {args.epochs} epochs, {len(train_dl)} steps/epoch...")
+    log(f"Training {args.epochs} epochs, {len(train_dl)} steps/epoch... (FGM={'on' if fgm else 'off'})")
     model.train()
     for ep in range(args.epochs):
         t_ep = time.time(); running = 0.0
@@ -178,6 +214,12 @@ def main():
             with torch.autocast(device_type="cuda", dtype=torch.float16):
                 loss = loss_fn(model(**enc).logits, labels)
             scaler.scale(loss).backward()
+            if fgm is not None:                       # adversarial pass
+                fgm.attack()
+                with torch.autocast(device_type="cuda", dtype=torch.float16):
+                    loss_adv = loss_fn(model(**enc).logits, labels)
+                scaler.scale(loss_adv).backward()
+                fgm.restore()
             scaler.unscale_(opt)
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             scaler.step(opt); scaler.update(); sched.step()

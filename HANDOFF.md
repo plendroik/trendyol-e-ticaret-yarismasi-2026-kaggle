@@ -13,16 +13,20 @@
   |-----------|----------|-----|
   | Eski GBDT+CE kolay blend | 0.327 | 0.76 |
   | Zor-negatif blend | 0.14 / 0.47 | 0.64 / 0.68 |
-  | all-ones (prevalans probu) | 1.0 | **0.41** |
+  | prob (muhtemelen all-ZEROS → π≈%30) | — | 0.41 |
   | **Kolay CE TEK BAŞINA** | **0.33** | **0.80** ✅ |
+  | rich+FGM ensemble (ens2) | 0.31 | 0.78 |
+  | **BERTurk+mDeBERTa ensemble** | 0.33 | **0.80** (fark yok → veri darboğaz) |
 
-## 2. 🔴 BU GECENİN ÜÇ KRİTİK BULGUSU
+## 2. 🔴 KRİTİK BULGULAR (LB ile kanıtlı)
 
-1. **TEST %69.5 POZİTİF (çoğunluk).** all-ones=0.41 → P=0.41/(1−0.41)=0.695. Eğitimimiz ~%18 pozitifti → model "pozitif nadir" sanıp az tahmin ediyor. **Doğru kalibrasyon (~%33 pozitif tahmin) tek başına 0.76→0.80 sıçramasının yarısı.** Optimal tahmin oranı ~%33-40 (daha fazlası DÜŞÜRÜYOR: 0.47→0.68; macro-F1 azınlık negatif sınıfı eşit ağırlıkladığı için %70'e çıkma).
-2. **ZOR NEGATİFLER LB'DE İŞE YARAMADI.** Embedding-ANN hard negatif + denoising re-mining → LB 0.64-0.68, kolay negatiften (0.76-0.80) DAHA KÖTÜ. Sebep: test pozitif-çoğunluk; benzer ürünler çoğunlukla ALAKALI, ama biz modele "benzer=alakasız" öğrettik → önyargılı. **Offline harness (diagnose/holdout) bizi yanılttı çünkü pozitif-nadir varsaydı.** Holdout skorlarına GÜVENME; sadece LB.
-3. **CROSS-ENCODER YILDIZ, GBDT SEYRELTİYOR.** Kolay CE tek başına (0.80) > GBDT+CE blend (0.76). GBDT'yi at ya da çok düşük ağırlık ver.
+1. **TEST PREVALANSI ~%30 POZİTİF** (önceki "%69.5" YANLIŞTI). O 0.41'lik prob muhtemelen **all-ZEROS**'tı (all-ones değil): %30 prevalansta all-zeros = (1−π)/(2−π) = 0.41. **Kesin kanıt:** kolay CE %33 tahminle 0.80 aldı; eğer test %69.5 pozitif olsaydı %33 tahminde mükemmel model bile en fazla **0.635** alabilirdi → imkânsız. Yani π≈%30. **Optimal tahmin oranı (PPR) ~%30-33** (0.33→0.80 kanıtlı; daha düşük/yüksek kötü: ens@0.31→0.78, hard@0.47→0.68).
+2. **MODEL DARBOĞAZ DEĞİL — VERİ DARBOĞAZ (29 Haz akşamı kanıtı).** BERTurk(0.80) ≈ mDeBERTa(holdout aynı) ≈ **BERTurk+mDeBERTa ensemble @0.33 = 0.80.** İki FARKLI mimari aynı 0.80'i veriyor → **aynı hataları yapıyorlar** → tavan modelden değil, **sentetik negatif/etiket** kalitesinden. rich girdi + FGM de geçemedi (ens@0.31→0.78). Daha büyük/farklı model BOŞA — veriye yüklen.
+3. **ZOR NEGATİFLER LB'DE İŞE YARAMADI.** Embedding-ANN hard + denoising → 0.64-0.68 < kolay 0.80. Test negatifleri embedding-en-yakın değil, leksikal/kategori-orta-ilişkili (rastgele+TF-IDF onları daha iyi yakalıyor).
+4. **CROSS-ENCODER YILDIZ, GBDT SEYRELTİYOR.** Kolay CE tek (0.80) > GBDT+CE blend (0.76). GBDT KATMA.
+5. **OFFLINE HOLDOUT YANILTIYOR (+0.10 iyimser, reweight edilse bile).** Model kıyaslamak için bile güvenilmez. **SADECE LB'ye güven.**
 
-➡️ **DOĞRU YÖN: CE merkezli, kolay/temsili negatif, doğru kalibrasyon, CE-only ensemble.** (Zor negatif DEĞİL.)
+➡️ **DOĞRU YÖN (29 Haz sonu): model değiştirmeyi BIRAK. VERİYE yüklen** → pseudo-labeling (test pseudo-etiketleri ile retrain, cold-start'a birebir), TF-IDF/LLM sorgu genişletme, daha temsili negatif. Kalibrasyon ~%33 sabit, CE-only.
 
 ## 3. KRİTİK VERİ GERÇEKLERİ
 
@@ -47,18 +51,17 @@
 
 > ⚠️ `artifacts/`, `emb/`, `*.csv`, `*.npy` gitignore'da — repoda yok. Devralan kişi `gen_embeddings.py` + `fast_submit.py` çalıştırıp yeniden üretir.
 
-## 5. YARIN — DOĞRU YÖN (taze 5 submission)
+## 5. YARIN — VERİYE YÜKLEN (model değil!)
 
-> Prevalans (0.695) ve "CE-only + kolay negatif" yönü artık LB ile KANITLI. Zor-negatif yönüne DÖNME.
+> §2.2 KANITLI: model/mimari/ensemble değiştirmek 0.80'de tıkanıyor. Darboğaz **sentetik negatif/etiket kalitesi.** Yeni model eğitmek yerine VERİYİ iyileştir. Kalibrasyon ~%33 sabit, CE-only.
 
-1. **🔴 Kolay CE'yi yeniden üret + optimal oranı bul.** En iyimiz `submission_easyCE_p33.csv` (0.80) = `ce_model_berturk` (KOLAY negatiflerle eğitilen ilk CE) tek başına, %33 pozitif. Onu %28 ve %38'de gönder → optimal oranı haritala (belki >0.80).
-   - Not: kolay CE skorları `artifacts/_stale_easy/ce_test_berturk.npy`'de. Kolay negatif üretimi: `fast_submit.py`'ı **USE_EXISTING_PAIRS olmadan** çalıştır (kendi rastgele+TF-IDF negatiflerini deterministik üretir, seed 42).
-2. **🔴 CE-only ensemble.** `train_cross_encoder.py` ile KOLAY negatif `train_pairs` üzerinde 2-3 güçlü CE eğit (farklı seed/epoch/max_len; istersen XLM-R / ConvBERT-tr çeşitliliği). **GBDT'yi blend'e KATMA** (seyreltiyor). Test skorlarını ortalayıp ~%33'e kalibre et.
-3. **🟠 Daha güçlü tek CE:** kolay neg + zengin girdi (build_docs rich) + 3 epoch.
-4. **Kalibrasyon her zaman:** `calibrate_submit.py` ile hedef pos_rate ~0.30-0.40 arası üret. Holdout'a GÜVENME (yanıltıyor), sadece LB eğrisine (0.327→0.76, 0.33→0.80, 0.47→0.68).
-5. **2 final:** en iyi tek CE + en iyi CE-ensemble.
+1. **🔴 PSEUDO-LABELING (en güçlü kaldıraç — KDD Cup kazananı).** Ensemble test skorlarını (`ce_test_berturk` + `ce_test_mdeberta_easy`, rank-avg) al → çok emin olanları pseudo-etiketle (skor üst ~%10 → pozitif, alt ~%40 → negatif; orta belirsiz kısmı AT). Bunları kolay-negatif `train_pairs`'e EKLE → CE'yi yeniden eğit. Bu, **gerçek test sorgularını (cold-start!) ve gerçek test negatif dağılımını** modele verir → sentetik-negatif tavanını kırabilir. Güven eşiklerini iterate et.
+2. **🟠 TF-IDF / LLM sorgu genişletme.** Kısa-gürültülü sorguları zenginleştir (KDD Cup "day-day-up": sorgunun pozitif ürünlerinden top TF-IDF kelimeler). DİKKAT: test sorgularını da tutarlı genişlet (cold-start → pozitif yok; sorgunun 104 adayının başlıklarından TF-IDF ile genişlet ya da pseudo-relevance feedback).
+3. **🟠 Daha temsili negatif.** Test negatifleri leksikal/kategori-orta-ilişkili. "Kök-kategori dışı rastgele" (weak categorical) veya in-batch negatif dene. Negatif RECİPESİNİ değiştir, modeli değil.
+4. **Kalibrasyon:** her submission'da `calibrate_submit.py` / `ensemble_submit.py` ile PPR ~%33. LB eğrisi: 0.327→0.76, 0.33→0.80, 0.47→0.68, 0.31→0.78. Holdout YANILTIYOR — kullanma.
+5. **2 final:** 0.80 (`submission_easyCE_p33`) güvenli + yarınki en iyi.
 
-**Denenip ELENENLER (tekrarlama):** zor/embedding-ANN negatif, denoising re-mining, GBDT'yi blend'e katmak, holdout skoruna güvenmek, prevalansı düşük (~%13) sanmak.
+**Denenip ELENENLER (TEKRARLAMA):** zor/embedding-ANN negatif, denoising re-mining, GBDT blend, rich girdi+FGM, farklı/daha-büyük backbone (BERTurk≈mDeBERTa≈ensemble=0.80), holdout skoruna güvenmek, prevalansı %13/%69.5 sanmak (gerçek ~%30).
 
 ## 6. ORTAM
 
@@ -76,16 +79,16 @@ Trendyol Datathon 2026 Kaggle (arama terimi–ürün alaka, binary, macro-F1).
 Repo: trendyol-e-ticaret-yarismasi-2026-kaggle. Önce HANDOFF.md §1-2-5 oku.
 
 Kanıtlanmış durum (LB ile): EN İYİ = kolay-negatif Cross-Encoder TEK BAŞINA,
-%33 pozitife kalibre -> LB 0.80. Test %69.5 POZİTİF (all-ones probu). Zor negatif
-ve GBDT'yi blend'e katmak DENENDİ, LB'de KÖTÜ (HANDOFF §2). Holdout YANILTIYOR,
-sadece LB'ye güven.
+%33 pozitife kalibre -> LB 0.80. Test prevalansı ~%30 pozitif (NOT 0.695). KANIT:
+model/mimari/ensemble değiştirmek 0.80'de tıkanıyor (BERTurk≈mDeBERTa≈ensemble=0.80)
+-> darboğaz MODEL DEĞİL, sentetik negatif/etiket VERİSİ. Holdout YANILTIYOR, sadece LB.
 
-Bugün (taze 5 submission), HANDOFF §5'i uygula:
-1. emb/ yoksa python gen_embeddings.py. Kolay negatif train_pairs için
-   fast_submit.py'ı USE_EXISTING_PAIRS OLMADAN çalıştır.
-2. train_cross_encoder.py ile KOLAY negatif üzerinde 2-3 güçlü CE eğit
-   (farklı seed/epoch; GBDT'yi blend'e KATMA). score_test.py ile test skorla.
-3. calibrate_submit.py ile pos_rate ~0.30-0.40 arası submission üret, gönder,
-   optimal oranı bul. CE-only ensemble'ı kalibre et.
+Bugün VERİYE yüklen (HANDOFF §5), yeni model eğitme:
+1. PSEUDO-LABELING: ensemble test skorlarını (artifacts/ce_test_berturk +
+   ce_test_mdeberta_easy, rank-avg) al; üst ~%10 pozitif, alt ~%40 negatif pseudo-
+   etiketle (orta belirsizi at); kolay train_pairs'e ekle; CE'yi yeniden eğit.
+   Bu cold-start test sorgularını + gerçek negatif dağılımını verir.
+2. TF-IDF/LLM sorgu genişletme; daha temsili negatif recipe (model değil veri).
+3. Her submission'da calibrate_submit.py ile PPR ~%33. Holdout'a GÜVENME.
 GPU var (RTX 5070 Ti, 12.8GB). Her adımda önce kısa plan söyle, sonra uygula.
 ```
