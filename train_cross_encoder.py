@@ -188,8 +188,9 @@ def main():
         log(f"subsampled train rows -> {len(tr_idx)} (prevalence preserved in expectation)")
     log(f"train rows={len(tr_idx)}  holdout rows={len(ho_idx)}")
 
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModelForSequenceClassification.from_pretrained(args.model, num_labels=2).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+    model = AutoModelForSequenceClassification.from_pretrained(
+        args.model, num_labels=2, trust_remote_code=True).to(device)
 
     tr_q = [pq[i] for i in tr_idx]; tr_d = [pdoc[i] for i in tr_idx]
     tr_y = py[tr_idx].astype(np.int64)

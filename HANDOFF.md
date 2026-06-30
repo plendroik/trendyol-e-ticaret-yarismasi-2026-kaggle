@@ -7,7 +7,7 @@
 ## 1. ŞU AN NEREDEYİZ (29 Haziran gecesi sonu)
 
 - **Görev:** (arama terimi, ürün) çifti için **binary alaka**. Metrik: **macro-F1**. Submission: `id,prediction` (0/1).
-- **EN İYİ LB (public) = 0.80** → `submission_easyCE_p33.csv` (= **kolay-negatif Cross-Encoder TEK BAŞINA**, %33 pozitife kalibre). Final seçimine işaretli olmalı.
+- **EN İYİ LB (public) = 0.83** → `submission_trendyol_p33.csv` (= **Trendyol e-ticaret DOMAIN modeli** cross-encoder olarak, kolay neg, %33 kalibre). 0.80'i kıran tek şey DOMAIN modeli oldu. Yedek final: `submission_easyCE_p33.csv` (0.80).
 - **LB geçmişi (yön bunlardan çıktı):**
   | Submission | pos_rate | LB |
   |-----------|----------|-----|
@@ -21,7 +21,7 @@
 ## 2. 🔴 KRİTİK BULGULAR (LB ile kanıtlı)
 
 1. **TEST PREVALANSI ~%30 POZİTİF** (önceki "%69.5" YANLIŞTI). O 0.41'lik prob muhtemelen **all-ZEROS**'tı (all-ones değil): %30 prevalansta all-zeros = (1−π)/(2−π) = 0.41. **Kesin kanıt:** kolay CE %33 tahminle 0.80 aldı; eğer test %69.5 pozitif olsaydı %33 tahminde mükemmel model bile en fazla **0.635** alabilirdi → imkânsız. Yani π≈%30. **Optimal tahmin oranı (PPR) ~%30-33** (0.33→0.80 kanıtlı; daha düşük/yüksek kötü: ens@0.31→0.78, hard@0.47→0.68).
-2. **MODEL DARBOĞAZ DEĞİL — VERİ DARBOĞAZ (29 Haz akşamı kanıtı).** BERTurk(0.80) ≈ mDeBERTa(holdout aynı) ≈ **BERTurk+mDeBERTa ensemble @0.33 = 0.80.** İki FARKLI mimari aynı 0.80'i veriyor → **aynı hataları yapıyorlar** → tavan modelden değil, **sentetik negatif/etiket** kalitesinden. rich girdi + FGM de geçemedi (ens@0.31→0.78). Daha büyük/farklı model BOŞA — veriye yüklen.
+2. **🎯 GENEL MODEL DARBOĞAZ, DOMAIN MODELİ KIRDI (30 Haz kanıtı).** GENEL modeller hep 0.80: BERTurk=0.80, mDeBERTa≈0.80, ensemble=0.80, rich+FGM=0.78, pseudo=0.79, per-query=0.57. AMA **Trendyol e-ticaret DOMAIN modeli (cross-encoder) = 0.83** (eksik eğitimli haliyle bile!). → Tavan genel-model kapasitesindendi; **domain ön-eğitimi aynı veriden daha çok sinyal çıkarıyor.** KALDIRAÇ = domain model, daha büyük/genel model DEĞİL. Trendyol modeli: `Trendyol/TY-ecomm-embed-multilingual-base-v1.2.0`, `trust_remote_code=True` ile `AutoModelForSequenceClassification`.
 3. **ZOR NEGATİFLER LB'DE İŞE YARAMADI.** Embedding-ANN hard + denoising → 0.64-0.68 < kolay 0.80. Test negatifleri embedding-en-yakın değil, leksikal/kategori-orta-ilişkili (rastgele+TF-IDF onları daha iyi yakalıyor).
 4. **CROSS-ENCODER YILDIZ, GBDT SEYRELTİYOR.** Kolay CE tek (0.80) > GBDT+CE blend (0.76). GBDT KATMA.
 5. **OFFLINE HOLDOUT YANILTIYOR (+0.10 iyimser, reweight edilse bile).** Model kıyaslamak için bile güvenilmez. **SADECE LB'ye güven.**
@@ -51,17 +51,18 @@
 
 > ⚠️ `artifacts/`, `emb/`, `*.csv`, `*.npy` gitignore'da — repoda yok. Devralan kişi `gen_embeddings.py` + `fast_submit.py` çalıştırıp yeniden üretir.
 
-## 5. YARIN — VERİYE YÜKLEN (model değil!)
+## 5. YARIN — DOMAIN MODELİNİ MAKSİMİZE ET (kaldıraç bu!)
 
-> §2.2 KANITLI: model/mimari/ensemble değiştirmek 0.80'de tıkanıyor. Darboğaz **sentetik negatif/etiket kalitesi.** Yeni model eğitmek yerine VERİYİ iyileştir. Kalibrasyon ~%33 sabit, CE-only.
+> 0.83 domain CE EKSİK eğitildi (600k/760k satır, batch 32, max_len 160, basic girdi, 2 epoch). Bolca yer var. Komut bu 0.83'ü verdi:
+> `train_cross_encoder.py --model "Trendyol/TY-ecomm-embed-multilingual-base-v1.2.0" --suffix trendyol_ce --epochs 2 --max_len 160 --train_batch 32 --infer_batch 96 --max_train 600000 --basic_docs`
 
-1. **🔴 PSEUDO-LABELING (en güçlü kaldıraç — KDD Cup kazananı).** Ensemble test skorlarını (`ce_test_berturk` + `ce_test_mdeberta_easy`, rank-avg) al → çok emin olanları pseudo-etiketle (skor üst ~%10 → pozitif, alt ~%40 → negatif; orta belirsiz kısmı AT). Bunları kolay-negatif `train_pairs`'e EKLE → CE'yi yeniden eğit. Bu, **gerçek test sorgularını (cold-start!) ve gerçek test negatif dağılımını** modele verir → sentetik-negatif tavanını kırabilir. Güven eşiklerini iterate et.
-2. **🟠 TF-IDF / LLM sorgu genişletme.** Kısa-gürültülü sorguları zenginleştir (KDD Cup "day-day-up": sorgunun pozitif ürünlerinden top TF-IDF kelimeler). DİKKAT: test sorgularını da tutarlı genişlet (cold-start → pozitif yok; sorgunun 104 adayının başlıklarından TF-IDF ile genişlet ya da pseudo-relevance feedback).
-3. **🟠 Daha temsili negatif.** Test negatifleri leksikal/kategori-orta-ilişkili. "Kök-kategori dışı rastgele" (weak categorical) veya in-batch negatif dene. Negatif RECİPESİNİ değiştir, modeli değil.
-4. **Kalibrasyon:** her submission'da `calibrate_submit.py` / `ensemble_submit.py` ile PPR ~%33. LB eğrisi: 0.327→0.76, 0.33→0.80, 0.47→0.68, 0.31→0.78. Holdout YANILTIYOR — kullanma.
-5. **2 final:** 0.80 (`submission_easyCE_p33`) güvenli + yarınki en iyi.
+1. **🟢 PPR check (BEDAVA, retrain yok).** `submission_trendyol_p30.csv` ve `p36.csv` HAZIR diskte → gönder, domain modelinin optimal PPR'sini bul (0.33→0.83; belki 0.30/0.36 daha iyi). #2 GPU'da paralel dönerken yap.
+2. **🔴 Domain CE'yi DOLU eğit.** Aynı model ama: `--max_train 0` (tüm veri), **`--max_len 256`** (gte uzun bağlamı verimli, ürün metni/öznitelik sığar), **rich girdi** (--basic_docs YOK), 3 epoch, istersen `--fgm`. ~2-3 saat. Beklenti 0.84-0.85.
+3. **🔴 Ensemble: Trendyol CE + BERTurk.** Artık GERÇEK çeşitlilik (domain+genel). `ensemble_submit.py` ile `ce_test_trendyol_ce` + `_stale_easy/ce_test_berturk` rank-avg, PPR ~%33. (Önceki ensemble'lar genel+genel olduğu için fayda etmedi.)
+4. **🟢 2. Trendyol seed** → 3-model domain ensemble.
+5. **2 final:** 0.83 (`submission_trendyol_p33`) güvenli + yarınki en iyi. **Hedef 0.85-0.86.**
 
-**Denenip ELENENLER (TEKRARLAMA):** zor/embedding-ANN negatif, denoising re-mining, GBDT blend, rich girdi+FGM, farklı/daha-büyük backbone (BERTurk≈mDeBERTa≈ensemble=0.80), holdout skoruna güvenmek, prevalansı %13/%69.5 sanmak (gerçek ~%30).
+**ELENENLER (TEKRARLAMA):** zor/embedding-ANN negatif, denoising, GBDT blend, GENEL modeller (BERTurk/mDeBERTa ~0.80), rich+FGM (genel modelde 0.78), pseudo-labeling (0.79), per-query eşik (0.57), prevalansı %13/%69.5 sanmak (gerçek ~%30). Kalibrasyon hep PPR ~%33; holdout YANILTIYOR, sadece LB.
 
 ## 6. ORTAM
 
@@ -78,17 +79,19 @@
 Trendyol Datathon 2026 Kaggle (arama terimi–ürün alaka, binary, macro-F1).
 Repo: trendyol-e-ticaret-yarismasi-2026-kaggle. Önce HANDOFF.md §1-2-5 oku.
 
-Kanıtlanmış durum (LB ile): EN İYİ = kolay-negatif Cross-Encoder TEK BAŞINA,
-%33 pozitife kalibre -> LB 0.80. Test prevalansı ~%30 pozitif (NOT 0.695). KANIT:
-model/mimari/ensemble değiştirmek 0.80'de tıkanıyor (BERTurk≈mDeBERTa≈ensemble=0.80)
--> darboğaz MODEL DEĞİL, sentetik negatif/etiket VERİSİ. Holdout YANILTIYOR, sadece LB.
+Kanıtlanmış durum (LB ile): EN İYİ = LB 0.83 = Trendyol e-ticaret DOMAIN modeli
+(Trendyol/TY-ecomm-embed-multilingual-base-v1.2.0) cross-encoder olarak, %33 kalibre.
+KALDIRAÇ = DOMAIN modeli: GENEL modeller (BERTurk/mDeBERTa/ensemble) hep 0.80'de
+tıkandı, domain modeli 0.83 (eksik eğitimli haliyle bile). Test prevalansı ~%30.
+Holdout YANILTIYOR, sadece LB. Kalibrasyon hep PPR ~%33.
 
-Bugün VERİYE yüklen (HANDOFF §5), yeni model eğitme:
-1. PSEUDO-LABELING: ensemble test skorlarını (artifacts/ce_test_berturk +
-   ce_test_mdeberta_easy, rank-avg) al; üst ~%10 pozitif, alt ~%40 negatif pseudo-
-   etiketle (orta belirsizi at); kolay train_pairs'e ekle; CE'yi yeniden eğit.
-   Bu cold-start test sorgularını + gerçek negatif dağılımını verir.
-2. TF-IDF/LLM sorgu genişletme; daha temsili negatif recipe (model değil veri).
-3. Her submission'da calibrate_submit.py ile PPR ~%33. Holdout'a GÜVENME.
+Bugün domain modelini MAKSİMİZE et (HANDOFF §5):
+1. (bedava) submission_trendyol_p30/p33/p36.csv HAZIR -> PPR optimumunu bul.
+2. Domain CE'yi DOLU eğit: train_cross_encoder.py --model
+   "Trendyol/TY-ecomm-embed-multilingual-base-v1.2.0" --suffix trendyol_full
+   --epochs 3 --max_len 256 --train_batch 32 --infer_batch 96 --max_train 0 (rich
+   girdi, --basic_docs YOK; istersen --fgm). score sonrası calibrate ~%33.
+3. Ensemble: ce_test_trendyol_* + _stale_easy/ce_test_berturk (ensemble_submit.py),
+   domain+genel gerçek çeşitlilik. Hedef 0.85-0.86.
 GPU var (RTX 5070 Ti, 12.8GB). Her adımda önce kısa plan söyle, sonra uygula.
 ```
