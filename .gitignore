@@ -29,6 +29,9 @@ venv.bak/
 .idea/
 .gemini/
 
+# Secrets
+openai_key.txt
+
 # Model outputs/logs
 catboost_info/
 *.log
