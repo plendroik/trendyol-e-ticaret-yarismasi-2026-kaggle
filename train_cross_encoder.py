@@ -160,17 +160,26 @@ def main():
     ap.add_argument("--fgm", action="store_true", help="FGM adversarial training on embeddings")
     ap.add_argument("--fgm_eps", type=float, default=1.0)
     ap.add_argument("--basic_docs", action="store_true", help="basic serialization (LB-0.80 recipe)")
+    ap.add_argument("--terms_file", default=None, help="override terms.csv (e.g. expanded_terms.csv)")
+    ap.add_argument("--pairs_file", default=None, help="override artifacts/train_pairs.parquet")
     args = ap.parse_args()
 
     torch.manual_seed(args.seed); np.random.seed(args.seed)
     t0 = time.time()
     log(f"device={device}  model={args.model}  suffix={args.suffix}  epochs={args.epochs}  seed={args.seed}")
 
-    pairs = pd.read_parquet(os.path.join(ART_DIR, "train_pairs.parquet"))
-    log(f"train_pairs={len(pairs)}  holdout_fold={HOLDOUT_FOLD}")
+    pairs_path = args.pairs_file or os.path.join(ART_DIR, "train_pairs.parquet")
+    if args.pairs_file and not os.path.isabs(pairs_path):
+        pairs_path = os.path.join(ART_DIR, args.pairs_file)
+    pairs = pd.read_parquet(pairs_path)
+    log(f"train_pairs={len(pairs)} ({os.path.basename(pairs_path)})  holdout_fold={HOLDOUT_FOLD}")
 
     log("Loading terms + items, building serialized docs...")
-    terms = pd.read_csv(os.path.join(DATA_DIR, "terms.csv"))
+    terms_path = args.terms_file or os.path.join(DATA_DIR, "terms.csv")
+    if args.terms_file and not os.path.isabs(terms_path):
+        terms_path = os.path.join(DATA_DIR, args.terms_file)
+    log(f"terms file: {terms_path}")
+    terms = pd.read_csv(terms_path)
     items = pd.read_csv(os.path.join(DATA_DIR, "items.csv"))
     term2q = dict(zip(terms["term_id"], terms["query"].fillna("").astype(str)))
     item2doc = dict(zip(items["item_id"], build_docs(items, rich=not args.basic_docs)))
