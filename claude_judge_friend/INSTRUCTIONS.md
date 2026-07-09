@@ -1,7 +1,7 @@
 # LLM Hakem Gorevi (VS Code ajani icin)
 
 Sen Trendyol arama-alaka uzmanisin. Bu klasordeki `input_NNN.txt` (ve once
-`exam_input.txt`) dosyalarini isleyeceksin. Her satir bir (sorgu, urun) cifti:
+`exam2_input.txt`) dosyalarini isleyeceksin. Her satir bir (sorgu, urun) cifti:
 
     <id> | <sorgu> | <urun metni>
 
@@ -16,7 +16,7 @@ Urun, sorgunun MAKUL bir sonucu mu? KURALLAR:
 
 ## Cikti kurali
 Her input dosyasi icin `outputs/` klasorune ayni adla `.csv` yaz
-(orn. `input_001.txt` -> `outputs/input_001.csv`; sinav: `outputs/exam.csv`).
+(orn. `input_001.txt` -> `outputs/input_001.csv`; sinav: `outputs/exam2.csv`).
 Format TAM OLARAK soyle (baslik dahil):
 
     id,label
@@ -28,18 +28,6 @@ Format TAM OLARAK soyle (baslik dahil):
 - Dosyalari kod calistirarak degil, kendi yargi yetenegin ile etiketle
   (satirlari oku, karar ver, csv yaz). Gerekirse dosyayi parcalar halinde isle.
 
-## KRITIK KURAL (v2)
-- Etiketler SADECE guclu bir LLM'in muhakemesiyle uretilmeli: ya VS Code ajani
-  (Sonnet/Opus/GPT sinifi) satirlari BIZZAT okuyup karar verir, ya da yerel bir
-  buyuk LLM (orn. Qwen3-14B+, Ollama/LM Studio) tek tek yargilar.
-- bge-reranker gibi kucuk skorlama modelleri KULLANILAMAZ (elimizdeki modellerle
-  ayni bilgiyi verir, tahkime katki sifir - denendi, olculdu).
-- SINAV: once exam2_input.txt -> outputs/exam2.csv (eski exam gecersiz).
-
 ## Islem sirasi
-1. ONCE `exam_input.txt` -> `outputs/exam.csv` (sinav; sonucu insan kontrol edecek)
+1. ONCE `exam2_input.txt` -> `outputs/exam2.csv` (sinav; sonucu insan kontrol edecek)
 2. Onay gelince `input_001.txt`den itibaren sirayla.
-
-## EK KURAL (onemli)
-- idleri girdiden AYNEN KOPYALA, asla elle yazma.
-- Her cikti dosyasinda satir sayisinin girdiyle ESIT oldugunu dogrula.
