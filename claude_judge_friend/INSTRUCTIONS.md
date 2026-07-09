@@ -28,6 +28,14 @@ Format TAM OLARAK soyle (baslik dahil):
 - Dosyalari kod calistirarak degil, kendi yargi yetenegin ile etiketle
   (satirlari oku, karar ver, csv yaz). Gerekirse dosyayi parcalar halinde isle.
 
+## KRITIK KURAL (v2)
+- Etiketler SADECE guclu bir LLM'in muhakemesiyle uretilmeli: ya VS Code ajani
+  (Sonnet/Opus/GPT sinifi) satirlari BIZZAT okuyup karar verir, ya da yerel bir
+  buyuk LLM (orn. Qwen3-14B+, Ollama/LM Studio) tek tek yargilar.
+- bge-reranker gibi kucuk skorlama modelleri KULLANILAMAZ (elimizdeki modellerle
+  ayni bilgiyi verir, tahkime katki sifir - denendi, olculdu).
+- SINAV: once exam2_input.txt -> outputs/exam2.csv (eski exam gecersiz).
+
 ## Islem sirasi
 1. ONCE `exam_input.txt` -> `outputs/exam.csv` (sinav; sonucu insan kontrol edecek)
 2. Onay gelince `input_001.txt`den itibaren sirayla.
