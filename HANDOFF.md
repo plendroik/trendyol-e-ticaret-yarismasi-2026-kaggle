@@ -4,6 +4,30 @@
 
 ---
 
+## 0. 🎯 EN GÜNCEL DURUM (3 Temmuz gecesi) — DOĞRUDAN TEST ETİKETLEME PİVOTU
+
+- **LB: hâlâ 0.83** (`submission_trendyol_p33.csv`). Liderler 0.92. ~12 gün kaldı.
+- **LLM-damıtma DENENDİ ve BAŞARISIZ: 0.79.** (`submission_llm_p33.csv` = 0.83 temeli + 101k gpt-4o-mini etiketi ile domain CE retrain → LB 0.79.) Suçlu: batch-15 etiketleme formatı gürültülü + 75k şüpheli LLM-pozitifi. Eğitim-tarafı damıtma yolu KAPANDI.
+- **🔑 HAKEM SINAVI BULGUSU (bu gecenin keşfi):** Hakemi ölçen benchmark kuruldu (100 bilinen pozitif → recall, 100 rastgele çift → FPR):
+  | Hakem | RECALL | FPR |
+  |---|---|---|
+  | qwen2.5:7b (Ollama, yerel) | 0.52 | 0.00 — ÇAKTI |
+  | gpt-4o-mini batch-15 | 0.86 | 0.07 |
+  | **gpt-4o-mini TEK-ÇİFT** | **0.94** | **0.06** ✅ |
+  | **gpt-4o TEK-ÇİFT** | **0.99** | **0.02** ✅✅ |
+  → **BATCH format kaliteyi bozuyor; TEK-ÇİFT şart.** gpt-4o ground truth'u %99 tutturuyor → test etiketleri neredeyse kesin gpt-4o-sınıfı LLM üretimi. 0.92'lerin muhtemel sırrı: LLM'i TESTE DOĞRUDAN uygulamak (damıtma değil).
+- **Girdi düzeltmesi:** ürün metnine MARKA + cinsiyet eklendi (`judge_local.py: prod_text`) — marka sorguları ('avent', 'stenly', 'schneider') markasız metinde çözülemiyor. Ground truth ÇOK KAPSAYICI: ikame ürünler, yakın tipler, kategori sorguları hep pozitif.
+- **YARIN SABAH PLANI (kullanıcı onayladı, uygulanacak):**
+  1. Kullanıcı organizatörlere mail atar: "test verisini LLM API'ye göndermek serbest mi?" (kural gri alanı: "üçüncü tarafla paylaşım" maddesi).
+  2. Domain CE (0.83) skorlarının KARARSIZ BANDINI çıkar (~300k çift, skor ~0.2-0.85).
+  3. Bandı **gpt-4o-mini TEK-ÇİFT + paralel** etiketle (~$11-15, 10 thread'de 10.7 çift/sn ≈ 8 sa; 20-30 thread ile 3-4 sa). Resume-safe yaz.
+  4. Hibrit: CE emin tahminler + LLM band etiketleri → `submission_judge_p33.csv` → LB testi.
+  5. İyi gelirse: en zor 30-50k'ya gpt-4o ikinci görüş (~$20-30).
+- **Araçlar hazır:** `judge_local.py` (Ollama hakem + doğrulama), `judge_api_validate.py` (API hakem sınavı; SYS prompt'un v1'i en iyisi — "başlık kelimesi içeriyorsa 1" kuralı EKLEME, FPR patlatıyor 0.51'e).
+- Ayrıca dünkü eğitimden `ce_test_trendyol_llm.npy` + `ce_model_trendyol_llm` mevcut (LB 0.79, kullanma; `ce_test`in 0.83'lük skoru `ce_test_trendyol_full.npy`... hangisi olduğunu §4'ten doğrula).
+
+---
+
 ## 1. ŞU AN NEREDEYİZ (29 Haziran gecesi sonu)
 
 - **Görev:** (arama terimi, ürün) çifti için **binary alaka**. Metrik: **macro-F1**. Submission: `id,prediction` (0/1).

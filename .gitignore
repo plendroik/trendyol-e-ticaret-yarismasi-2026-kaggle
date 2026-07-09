@@ -38,3 +38,7 @@ catboost_info/
 
 # Embedding cache
 emb/
+gemini_key.txt
+
+# ajan hakem ciktilari repoda kalsin
+!claude_judge*/outputs/*.csv

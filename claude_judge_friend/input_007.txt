@@ -1,0 +1,400 @@
+TST_7f2f3890f8fbe2 | kahve yanı su bardağı | lal-506 6'lı siyah ayaklı, yaldızlı kahve yanı su bardağı , likör bardağı , çeyizlik hediy [bardak] marka:p&ora premium kitchen products renk:çok renkli materyal:cam
+TST_a98f5d919c50fe | büyük yaka gömlek | organik kalın dokuma açık kahve kışlık minik erkek çocuk gömlek [gömlek] marka:ozmoz by mukadder özden erkek renk:kahverengi materyal:pamuk - poliamid
+TST_84bcf9ced39c55 | bahçe | lüks hediyelik çeyizlik çiçek desen seccade [seccade] marka:bilen hediyelik renk:lacivert materyal:pamuklu
+TST_3162db71d4b175 | genel bakım spreyi | motor ve jant temizleme spreyi 500 ml awmax [genel bakım spreyi] marka:awmax
+TST_54562cae579db2 | tyt sosyal bilimler | şenol hoca - sıfırdan başa temelini geliştir - alıştırmalarla - çıtır çerez kitap seti yks [sınav hazırlık] marka:benim hocam yayınları
+TST_eabec9b1ddbe76 | pankek tavası | redio 4 gözlü 28 cm mücver , pankek ve yumurta tavası burger köfte tavası hamburger tava x [tava] marka:papilla materyal:granit
+TST_9f166e2a7b9099 | masa üstü sunumluk | bone joy 4 parça 8 cm kase seti [tabak] marka:kütahya porselen renk:bej materyal:porselen
+TST_f8ec07a6bbc479 | windows 11 pro | v15 g4 iru intel core i7-1355u 24gb 1tb ssd w11pro 15,6" fhd 83a1003ntx31 [dizüstü bilgisayar] marka:lenovo
+TST_c5002485837f83 | erkek yüz bakım | dermaroller 2.00mm titanyum 540 iğne orijinal derma roller [dermaroller] marka:trendroller renk:çok renkli
+TST_37c8dad48d6ed1 | kitap çantası | çanta 2025 5. sınıf fen bilimleri alıştıran defter [ders ve yardımcı kitaplar] marka:çanta yayınları
+TST_e83f846c036d00 | powertec fön | newyork turbox5 profesyonel 2400 watt saç kurtma makinesi siyah x5syh [saç kurutma makinesi] marka:hector renk:siyah
+TST_fe6e48ce5753c1 | 5. sınıf paragraf | lgs poster notlar soru fasikülleri ilk çeyrek [sınav hazırlık] marka:kr akademi yayınları
+TST_c69f4792e078a5 | şarjlı el rondosu | hr2500/00 eco conscious edition 5000 smoothie blender [kişisel blender] marka:philips renk:beyaz
+TST_ce5e1c73493535 | bianca stella boya | stella su bazlı akrilik boya krom gri [iç cephe boyası] marka:bianca renk:bej
+TST_2268e65254b7f6 | benim hocam tyt | strateji 8. sınıf lgs gün gün paragraf soru bankası (orta ve ileri düzey)2025 [sınav hazırlık] marka:arı yayıncılık
+TST_da506b1dbc9275 | pvc zemin kaplama | pvc paralı muşamba zemin yer otomobil araç döşemesi kaplama para desenli siyah-gri [halı] marka:güven renk:siyah materyal:polipropilen
+TST_380b4f03ad9f66 | cantu saç kremi | be curly advanced bukle belirginleştirici krem seyahat boy 40 ml [saç kremi] marka:aveda
+TST_bc6e2bd46b6a54 | stich anahtarlık | shutter moment – fotoğraf makinesi figürlü unisex metal anahtarlık [anahtarlık] marka:herşey nota renk:gri
+TST_c65aec0aa8bf63 | mutfak tabloları | boksör fil dekoratif kanvas - mdf ahşap tablo [tablo] marka:karizmart renk:çok renkli materyal:mdf
+TST_f38f4e7cf99505 | tab 9 | uyumlu  8.nesil 10.2 inch tempered glass cam koruma [tablet kılıfı] marka:microcase renk:turuncu
+TST_870042907aef52 | magnezyum bisglisinat | takviye edici gıda 30 lu tablet [aktar ürünleri] marka:mumiyo
+TST_8cef4f5bbe69a3 | kız çocuk parfüm | frozen elsa edt 50 ml çocuk parfüm seti [parfüm] marka:disney kadın renk:beyaz
+TST_fc4347ee961e65 | kadın krem kot pantolon | bol kot pantolon kargo cepli beli bağcıklı yıkamalı [jeans] marka:koton erkek renk:siyah materyal:tekstil
+TST_9d098b1e0c065a | ayarlanabilir briz perde çubuğu | perde aksesuarı premium incili braçol kornişe takılır 1 adet [perde aksesuarı] marka:helezoni renk:gri materyal:taşlı
+TST_77522248502b0f | mudo el çantası | kadın rugan acı kahve kemer detaylı baget kol çantası [el çantası] marka:moda elf kadın renk:kahverengi materyal:suni deri
+TST_cc9e56c7e9162e | duracell 10 numara işitme cihazı pili | aktivair 675 numara işitme cihazı kulaklık pili (6x10=60adet) [pil & şarj cihazı] marka:duracell
+TST_e3b693819a60df | korbell | kilitli poşet 19*25 12'li [poşet] marka:koroplast
+TST_b06e6a1d27f796 | hızar | alman strong 16 hp  çelik şanzıman benzinli ağaç odun dal motorlu hızar bıçkı testeresi or [zincirli ağaç kesme makinesi] marka:stanrayf
+TST_2d89b4738e79ac | one million parfüm | one million - extrait de erkek parfüm - 50 ml [parfüm] marka:patronus erkek
+TST_e9ca4e2ff6b738 | iç çamaşırı düzenleyici organizer | 5 bölmeli düzenleyici, saat, takı, toka, çorap, kravat, iç çamaşırı organizeri 4 adet karı [dolap içi düzenleyici] marka:ecolux renk:siyah materyal:plastik
+TST_ab0555843a6436 | yatak odası avize | aren 8 li eskitme avize-beyaz camlı dekoratif tasarım yatak odası mutfak salon avize [avize] marka:taşcan aydınlatma renk:çok renkli materyal:metal
+TST_fbe344e286996f | 3 lü metal ayakkabılık | kapaklı ayakkabılık bosnevi mat beyaz sunta 110*080*30 yimisekiz çift ayakkabı kapasitesi  [ayakkabılık] marka:kenzlife renk:beyaz materyal:suntalam
+TST_12942dccbf1325 | kapı zili | technomax uzaktan kumandalı kapı zili (100m kapsama alanlı) [kapı zili] marka:anktek
+TST_3077314e3e393f | ev aletleri yedek parça | lucky sap [süpürge aksesuarı] marka:fakir renk:siyah
+TST_39c10a67667c6f | top avize | sarkıt tepsi eskitme 6'lı füme top camlı aşağı bakan avize [avize] marka:sonsuz aydinlatma&avize renk:gri materyal:metal
+TST_5d2e0b575a51ed | pedikür terliği | jesscica unisex anatomik taban günlük terlik (37-41)  24y t-jessica u siyah [terlik] marka:twigy unisex renk:siyah materyal:suni deri
+TST_e0dc92d7322156 | dolap askısı | ae-1075 poli vestiyer takımı 2 kapaklı beyaz askılıklı [portmanto] marka:aeka renk:beyaz materyal:suntalam
+TST_f105cc538a4acb | kırmızı triko hırka | erkek bordo pamuklu fermuarlı dik yaka triko hırka ceket standart fit normal kesim [kazak] marka:ac&co / altınyıldız classics erkek renk:bordo materyal:triko
+TST_4de8cc2f882654 | şerit metre | 1.5 cm balıksırtı şerit-5 metre [kurdele] marka:paşateks since 1995 şekil renk:pembe
+TST_3facf6f59a7f3f | fuşya gömlek | fuşya köpek gömlek, yazlık keten üst giyim, küçük ırklar için şık ve rahat [köpek kıyafeti] marka:abouttheperfect renk:çok renkli
+TST_2356edbe74582a | ilbays | (3 adet) sihirli inox paslanmaz telli bulaşık bezi kir,pas ,yağ sökücü temizlik bezi [temizlik bezi] marka:micro clean
+TST_3ac60529aa613a | microfer | magnezyum bisglisinat 30 tablet [vitamin] marka:venatura
+TST_2e465cac6ee120 | kristal avize | plaket kristal taş işlemeli 304 krom paslanmaz ledli avize [avize] marka:ala lighting renk:bej materyal:krom
+TST_64fe9137311980 | saç şekillendirici set | 6 adet bit tarağı özel dişli plastik sık dişli tarak sarı tarak bit tarağı sarı renk lice  [saç fırçası ve tarak] marka:yüsra shop renk:sarı
+TST_882b82f338cf18 | erkek düz tişört | scooby doo 87 baskılı unisex tişört [t-shirt] marka:ar&yos unisex renk:kırmızı materyal:pamuk polyester
+TST_354fc3e14d4439 | peçete yüzüğü | mavi mini gala çiçeği buketi 6'lı peçete yüzüğü [peçetelik] marka:cwolf renk:mavi materyal:hasır
+TST_89591f1db98832 | halı ve koltuk yıkama makinesi buharlı | se3 compact koltuk ve halı yıkama makinesi beyaz [halı yıkama makinesi] marka:karcher renk:siyah
+TST_f481ab495437be | kadın kısa gömlek | beyaz uzun kollu gömlek [gömlek] marka:w collection erkek renk:çok renkli materyal:%100 pamuk
+TST_30ce5d4b46f284 | küçük çalışma masası | bambeds 60x90 beyaz masa balkon masası ders calısma masası [mutfak masası] marka:bambeds mobilya renk:beyaz materyal:suntalam
+TST_e94a0722ddc47f | kadın gold ayakkabı | kadin sivri burun bot yandan tokali yeni sezon [bot & bootie] marka:barak shoes kadın renk:siyah materyal:suni deri
+TST_9edc7546a921a1 | araba çizik giderici | autokıt carnauba pasta cila (220g) [pasta cila] marka:autokit
+TST_ac19b2e1f44517 | kapaklı sepet | krem kapaklı dolap içi çamaşır oyuncak düzenleyici katlanır kapaklı saklama kutusu 30x30x3 [saklama kutusu] marka:ph prendi home renk:krem materyal:kumaş
+TST_faa795d9e0758d | büyük saklama kabı | wicker büyük boy hasır kapaklı patates soğan sepet sunum sebzelik örgü çamaşır sepeti deko [sepet] marka:bayev renk:kahverengi materyal:hasır
+TST_f2b08fac7bddc6 | good night kanepe | iskandinav bohem üçlü koltuk - krem [kanepe] marka:modalife renk:bej materyal:ahşap
+TST_716911f16f02f3 | lastikli kadife halı örtüsü | koltuk örtüsü | çekyat örtüsü | koltuk şalı 175x215 mikrofiber şönil çift taraflı kaymaz | [koltuk örtüsü] marka:latuda concept renk:yeşil materyal:şönil
+TST_6141790df63d23 | çizgili sweatshirt erkek | unisex leopar desenli kalp baskılı oversize bisiklet yaka sweatshirt [sweatshirt] marka:uyguntarz unisex renk:yeşil materyal:pamuk polyester
+TST_83ad81e1c9b592 | mi band 7 | xiaomi mi band 6 krd-24 uyumlu bto kordon no7 [akıllı saat kordon] marka:cepteaksesuar renk:haki materyal:deri
+TST_74daad28937559 | saka ve sanrı | beyaz leke mahkumiyet/beyaz leke özgürlük aslı arslan 2 kitap set(karton kapak) [roman] marka:indigo kitap
+TST_52cc22c2129cca | masal masal içinde kitabı | arabali sticker hediyeli - okul öncesi resimli kitaplar masal - uyku saati hikayeleri - 5  [çocuk masal ve öykü kitabı] marka:türkiye iş bankasi kültür yayinlari
+TST_953fa040691fd1 | taş rengi pantolon | gri ex. slim fit keten karışımlı kumaş pantolon 50284934-vr024 [pantolon] marka:pierre cardin erkek renk:gri materyal:keten
+TST_2eb4b561fc3823 | tudors ceket | siyah gübür detaylı toptan ceket [ceket] marka:bare & bold kadın renk:siyah materyal:pamuk polyester
+TST_069a8981aea5aa | jaluzi | açık gri 50 mm ahşap görünümlü jaluzi [stor perde] marka:özel jaluzi renk:gri materyal:polyester
+TST_74eed74bed7cde | su filtresi | maxtra pro pure perfomance yedek su arıtma filtresi, 12'li [sürahi ve karaf] marka:brita renk:beyaz materyal:gore
+TST_8f38780bfdec53 | tak çıkar çizme | pembe kız çocuk yağmur botu [çizme] marka:igor unisex renk:pembe materyal:belirtilmemiş
+TST_6c8e6c4370d203 | nutri feline | pumpkin bıldırcın etli bal kabaklı ve narlı taılsız kısırlaştırılmış kedi maması 1,5 kg -  [kedi kuru maması] marka:n&d
+TST_482d01b9c84b6c | yazı duyu | 50'li oynar göz diy yapışkanlı siyah 15mm [el işi malzemesi] marka:ozn aksesuar
+TST_8a4b3f619d8424 | gold kahve yanı lokumluk | japon gülü metal lokumluk sunumluk | kahve yanı ikramlık drajelik şık tasarım 2 adet [dekoratif tabak & kase] marka:metler renk:sarı materyal:metal
+TST_56127c81c47a08 | kız çocuk bol paça pantolon | geenz manifacture 90's süper yüksek bel salaş jeans palazzo pantolon (1 beden büyük aliniz [pantolon] marka:tref jeans kadın renk:siyah materyal:%100 pamuk
+TST_0292cfef62dd34 | royal platinum | nike (çocuk) nike air max bolt 'pure platinum royal volt' cw1629-004 [sneaker] marka:nike erkek renk:beyaz materyal:hakiki deri
+TST_30dee7fa7329a4 | çocuk asker kostümü | kızılderili kostümü çocuk [kostüm] marka:kostüm sarayı erkek renk:çok renkli materyal:süet
+TST_f18593c60f0115 | pirinç unu | 2'li cream pirinç unu kremi [yüz kremi] marka:rice flour
+TST_e2783e87ec215c | retro pikap hoparlör | bluetooth hoparlör nostaljik radyo speaker ns02 altın [bluetooth hoparlör] marka:torima renk:altın
+TST_bbc4b6d2927e2d | at kılı fırçası | özel üretim cilt canlandırıcı %100 doğal selülit önleyici masaj etkili at kılı vücut fırça [selülit fırçası] marka:glozy
+TST_f8808dab44a26d | kahverengi gömlek | kadın gömlek yaka yelek 60229 60271013 [yelek] marka:bianco lucci kadın renk:kahverengi materyal:kumaş
+TST_b20abe8fa7dea1 | kozmetik set | love potion edp ambalajlı [parfüm] marka:oriflame unisex
+TST_975476079140e7 | libre intense | seoul edt 80ml lısboa edt 90ml(2,7 fl. oz). erkek parfüm [parfüm] marka:zara erkek
+TST_f11cf38f831f23 | d vitamini | endovir takviye edici gıda 30 tablet [bitkisel ürünler] marka:krcderma
+TST_fc3465353486fe | erkek çocuk tayt | mls siyah yüksek bel sıkılaştırıcı dalgıç kumaş tayt [tayt] marka:livik kadın renk:siyah materyal:pamuklu
+TST_43eaed2f8f0e76 | jel taban halı | moopy krem bukleli yumuşak zikzak dokuma yolluk halı salon halısı lp6497_krem [halı] marka:raschel carpet renk:bej materyal:polipropilen - polyester
+TST_e86ca88e533123 | ayak altı aydınlatma | limeo dokunmatik şarjlı metal masa lambası 3 renk işık dekoratif dimmer abajur kablosuz [masa ve gece lambası] marka:luminzo renk:beyaz materyal:metal
+TST_01910c29432a79 | marker defteri | a5 spiralli karton kapak 2’li set 80 gram 60 yaprak kareli okul defteri , notebook [defter] marka:miona renk:mor
+TST_deb850e281b756 | opel | 12 parça full oto bakım seti, araç temizlik seti [oto bakım seti] marka:cem
+TST_a3d29608c55ab8 | kedi tırmanma ağacı | antrasit kedi tırmalama tahtası 42cm [kedi tırmalaması] marka:lena pet renk:ekru
+TST_630caff5649dcc | sıkıştırmalı kıkırdak küpe | gümüş kalpler marka model çelik küpe [çelik küpe] marka:unzilee kadın renk:gümüş materyal:çelik
+TST_a742b00157dd64 | yoyo oyuncak | jujutsu kaisen anime mini figür fushiguro megumi m-533 [karakter figür oyuncak] marka:myminitoys
+TST_e069dcd810e956 | fırça uçlu marker | instensitv fineliner [keçeli kalem] marka:bic renk:çok renkli
+TST_bdde3e4d29d170 | bargello 323 | 104 - c.bleu 50 ml erkek parfümü [parfüm] marka:3ex erkek
+TST_84b08aedb3be3b | dog chow köpek maması | tahılsız bal kabaklı kuzu etli yaban mersinli küçük irk yetişkin köpek maması 2.5 kg [köpek kuru maması] marka:n&d unisex
+TST_ba40e6b43b9889 | 3 4 5 yayınları | şu acayip gökyüzü + evrensel gümüş patenler / 2 kitap set [çocuk masal ve öykü kitabı] marka:tudem yayınları
+TST_5eb35c55d97e6b | modest bluz | triko tunik 44933 [tesettür tunik] marka:alvina kadın renk:pembe materyal:akrilik karışımlı
+TST_7b5ba7d995fed5 | linens banyo paspası | cotton special 2'li pamuklu klozet takımı pudra banyo paspas seti klozet takımı [banyo paspası] marka:madame clean home renk:pembe materyal:pamuk
+TST_adbf50e2464e54 | banyo ayna üstü aplik | resim tablo ayna üstü banyo ledli aplik 220v 5 renk beyaz flüt aplik 3000k günışığı (pilli [aplik] marka:sekatech renk:beyaz materyal:metal
+TST_7b34460e25786b | isim yazılı çocuk çantası | baby portbebe bebek taşıma çantası leke tutmaz su geçirmez silinebilir [portbebe & kanguru] marka:avşar renk:gri
+TST_787f3cb086208f | xiaomi redmi watch 3 active kordon | xiaomi redmi watch 3 active kordon kayış dikiş desenli silikon krd102 lms 22/dds [akıllı saat kordon] marka:apsuwa renk:bej materyal:silikon
+TST_82b82d4d074a15 | 40 mm kordon | apple watch serisi 1 2 3 4 5 6 7 se 8 ultra uyumlu kordon 42mm/44mm/45mm/49mm jel silikon  [akıllı saat kordon] marka:tagomoon renk:mor materyal:silikon
+TST_5dfc6dd6f358eb | mutfak mobilyası | hyperion dolap 2 raflı 2 çekmeceli tek askılı 44x44x195 antrasit-aytaşı [çok amaçlı dolap] marka:dienni renk:çok renkli materyal:suntalam
+TST_566aa6ea9f3430 | tüylü paspas | modern kirem oval ponpon saçakli  post pelüş kaymaz taban hali yolluk [halı] marka:altun carpet renk:turuncu materyal:yün
+TST_b6ead9c37014b7 | karaca dik süpürge | kvc-4109 2'si 1 arada el tipi ve dikey elektrikli süpürge 600w & 5m güç kablosu [dik süpürge] marka:kiwi renk:siyah
+TST_a0bd468a736eb0 | pesto sos | kişniş - kaju cevizli pesto 190 g [makarna ve salata sosu] marka:jamie oliver
+TST_d0e1640ee7ec2c | dolap içi düzenleyici | 1 adet tencere kapağı organizeri - 6 bölmeli tencere kapak dolap içi düzenleyici kapak düz [dolap içi düzenleyici] marka:keyfi sepet renk:beyaz materyal:plastik
+TST_5be46d95b57e05 | mercusys | mi 300mbps wi-fi menzil genişletici [menzil genişletici] marka:xiaomi
+TST_3ad4f18a016d8e | mien sabunluk | 1 adet sert plastik boş sıvı sabun & dezenfekten pompalı şişe 100 ml [kimyasala dayanıklı] [sabunluk] marka:sampex renk:turuncu materyal:plastik
+TST_0d325cd33c5897 | bella maison battaniye | holly wellsoft tv battaniyesi 140x190 cm - gri [tek kişilik battaniye] marka:yataş renk:gri materyal:wellsoft
+TST_b9bc4ebfbd091f | aşçı terlik | d277 garantili şeffaf topuk şeffaf bant kadın ayakkabısı [terlik] marka:daxtors kadın renk:bej materyal:suni deri
+TST_e64fd8774f9bdd | polo air saat | yeni sezon siyah renk çelik kordon erkek kol saati bileklik hediyeli babalar günü hediyesi [saat] marka:s.polo erkek renk:gümüş
+TST_2eb77994b285b5 | tepsi | büyük boy 64 hazneli otomatik basmalı kapaklı buz kalıbı çift bölmeli buz kalıbı şekilli b [buz kalıbı] marka:mimoza park materyal:plastik
+TST_3e8e84e50c8663 | makyaj puf | oval dikdörtgen puf vs valeria teddy kumaş – makyaj masası ve oturma alanı için puf&bench [puf & bench] marka:visionario renk:lacivert materyal:suntalam
+TST_2e9baf569e4775 | laundry | rosa hasır sepet naturel (27x27x20 cm) [saklama kutusu] marka:bella maison renk:bej materyal:hasır
+TST_489b28a7139c4b | bardak kapağı | v-block heybeli rakı bardağı seti 6'lı [bardak] marka:paşabahçe renk:beyaz materyal:cam
+TST_bc2fe1e040454d | lego mercedes | 60313 city lunapark uzay oyuncağı kamyonu [lego & yapı oyuncakları] marka:lego renk:genel
+TST_16a202345167c0 | gumball | samsung galaxy a16 uyumlu gumball & darwin tasarımlı şeffaf telefon kılıfı [kapak & kılıf] marka:magic ring renk:çok renkli materyal:silikon
+TST_a52699573754e4 | raf tutucu | geyik tasarımlı takı standı yüzük küpe kolye askılığı mücevher organizer askı [makyaj & takı organizeri] marka:omilife renk:siyah materyal:belirtilmemiş
+TST_d24d71ed818942 | up&fit tayt | lastik örgülü pantolon [tayt] marka:h&m erkek renk:bej materyal:pamuklu
+TST_76e4cc79c0b447 | led far | bmw f45 f45 - f46 - f25 - f26 - f15 - f85 - f16 - f57 park sensör [oto far] marka:crn
+TST_d2ae76ab1f5c3f | ask0 | kitaplar ve çiçekler yaka kartı boyun askı ipi telefon askı ipi - ask0195 [yaka kartı & aksesuarları] marka:apptakı
+TST_99fcae019c4bb1 | çaydanlık takımı | marmaris mega boy ahşap 4,9 lt paslanmaz çelik çaydanlık k318.03 [çaydanlık] marka:özkent renk:mavi materyal:çelik
+TST_491e3edc52c594 | kumandalı led ampul | akkor ampul 60w e27 [ampul] marka:osram
+TST_f3a11d7d4b4e68 | modalife mutfak sandalyesi | trex serisi 1.sınıf babyface kumaş beyaz metal ayak 4 adet cappucino sandalye [mutfak sandalyesi] marka:canisa renk:beyaz materyal:metal
+TST_bdb6e595df8dd7 | reverse sweatshirt | polo yaka süprem yazlık sweatshirt uzun kollu tek cepli %100 pamuk unisex [sweatshirt] marka:çamdalı iş elbiseleri unisex renk:lacivert materyal:%100 pamuk
+TST_2d8e1c9ce69e39 | komik kalem | swell mekanik kurşun kalem 0.7 mm metalik mor [kurşun kalem] marka:serve renk:mor
+TST_8365aff874649f | fatih kurşun kalem | scrikss track 0.5 mm uçlu kalem mavi [kurşun kalem] marka:scrikss yayınları renk:mavi
+TST_88dd798d234bda | 8.sınıf matematik test kitabı | 2026 8. sınıf multi paragraf soru bankası | burcu hızır [ders ve yardımcı kitaplar] marka:hiperzeka
+TST_ce058b127852b5 | yedek parça | vag termostat (87c) crafter lt35 passat t4 a100 a6 a80 2,0 / 2,3d 2,5tdi contalı - 3091827 [piston] marka:swag
+TST_0bd6e7e00b38a5 | cam çay kaşığı | dekoratif çay kaşığı seti hijyenik cam çay kaşığı 6 adet [çatal & bıçak & kaşık] marka:fırsatvar renk:metalik materyal:metal
+TST_4d65933609ccbe | cat chow kedi maması | care sensitive hypo-allergenic somonlu ve hindili tahılsız yetişkin kedi maması 2 kg(.11/2 [kedi kuru maması] marka:brit
+TST_9322278d565369 | kütük masa | vito çalışma masası antrasit ceviz [çalışma masası] marka:lagomood renk:gri materyal:suntalam
+TST_21e69a4405d80a | kız çocuk kadife takım | love me anne kız pijama takımı ayrı ayrı satılır fiyatları farklıdır [pijama takımı] marka:lilian kadın renk:pembe
+TST_717734de2bf2b1 | ipad air 5 kılıf | ipad air 3 10.5 uyumlu kılıf 360 dönerli deri korumalı tablet kılıfı - mürdüm [tablet kılıfı] marka:aqua aksesuar renk:mor
+TST_b77827a8c825f6 | torpido ledi | opel corsa combo c bardaklık saklama gözü ve telefon tutucu [torpido aksesuar] marka:3dbaydesign
+TST_167a7aae99ee1e | loğusa pijama takımı | yumuşak dokulu şort takım [pijama takımı] marka:catherine's kadın renk:sarı materyal:polyester
+TST_8bd8e515802a9b | mutfak çöp kovası sensörlü | cigo pedallı banyo mutfak ofis çöp kovası 12lt beyaz iç kısım siyah [çöp kovası] marka:prima nova renk:beyaz materyal:çelik
+TST_20011cbf6b6fac | ilaçlama pompası | pb 122 pompalı depolu makaralı tekerli 4t benzinli ilaçlama makinesi [sisleme ilaçlama makinesi] marka:bolat
+TST_581d10d86db03b | erkek deri kaban | süvari bol kesim sivri yaka desenli gri erkek kaban [kaban] marka:süvari erkek renk:gri materyal:yünlü
+TST_7bab23a8ea1197 | happiness istanbul mont | polo yaka fermuar kapamalı cepli etek kol ağzı lastikli ithal kaşe mini çıtır bomber mont [mont] marka:aytenli kadın renk:krem materyal:kaşmir
+TST_df07611d72c00d | eros pijama takımı | turkuaz alt ekose desenli erkek şort takim [pijama takımı] marka:aydoğan erkek renk:turkuaz materyal:%100 pamuk
+TST_7095256ff85398 | motor kılıfı | spark 20 mat siyah uyumlu kılıf – yumuşak silikon, koruyucu, şok emici kapak [kapak & kılıf] marka:tecno renk:siyah materyal:silikon
+TST_4f215dcc61634a | kamera tutucu | samsung galaxy a6 için ideal telefon tutucu [foto & kamera aksesuarı] marka:pdx renk:siyah
+TST_1d78b3c926a725 | inmen | ilgili amirden habersiz aşağıya inmek yasaktır galvaniz uyarı levhası 17,5 x 25 cm [iş güvenlik tabelası] marka:izmir serigrafi
+TST_cc61d73a0a5827 | corega diş protezi temizleyici | süper diş protezi yapıştırıcı tat içermez krem 40 gr 3'lü [protez diş bakım] marka:corega
+TST_57c7b9a0e57552 | pamuk eşarp | 312 pierre cardin sura ipek eşarp 8847230 [eşarp] marka:pierre cardin renk:çok renkli materyal:ipek
+TST_49fbf462b3973e | ayıcıklı bardak | boncuk kulp katmerli pembe fiyonk desenli özel kabartmali el işlemeli seramik kupa [kupa] marka:izart renk:pembe materyal:seramik
+TST_bc42534eb29633 | tv çıtası | modern ahşap tv ünitesi 105 cm uzunluk [tv sehpa & ünitesi] marka:barida sanat renk:kahverengi materyal:mdf
+TST_db93dec97a004e | keski | hi-polymer min 0.2 mm mekanik kalem ucu 12'li tüp [kalem uçları] marka:pentel unisex
+TST_8a8d3ae5831a96 | effaclar | gözenek ve siyah nokta karşıtı bakım seti [cilt bakım seti] marka:skin401
+TST_023027c40d2066 | erkek bebek alt üst takım | regular fit 2'li takım bürümcük atlet şort f1487ax25sm [alt - üst takım] marka:defacto kadın renk:mavi materyal:elastan
+TST_932da4965d91c6 | mop tutucu | dreame l10s ultra uyumlu mop paspas tutucu braket [süpürge aksesuarı] marka:robotyedek renk:beyaz
+TST_9acb40ab7b776c | stick allık | miss beauty glow stick blusher 02 dusty rose stik allık 6 g [allık] marka:golden rose renk:pembe
+TST_da227e6feaa5d8 | cam parfüm şişesi | alaca kokusu premium seri 250 ml cam şişe [kolonya] marka:golonya
+TST_e75d98a87bb902 | eyliner | göz kalemi - colour kajal 09 blue 71 [göz kalemi] marka:kiko renk:mavi
+TST_4cf2a1e0d654b6 | tips protez tırnak | matte top coat 15 ml mat topcoat [takma tırnak & aksesuarı] marka:unogel renk:beyaz
+TST_63090b763ab6cb | traş fırçası | profesyonel ense fırçası yeşil y [tıraş aksesuarı] marka:roben
+TST_ba30731dfd0408 | biraru | 2025-2026 a5 keten akademik ajanda 15x21 cm - 17 aylık sütlü kahve [ajanda] marka:matt notebook renk:kahverengi
+TST_1d5f08ee568cca | zippo fitil | 41085-00026 seneca ballpoınt pen kalem [benzinli çakmak] marka:zippo renk:beyaz
+TST_f9dc2d6784286b | patrones | aktuel kare karışık sayı 5 [hobi dergisi] marka:turkuvaz
+TST_92969ea593684e | boho elbise | zarif yakalı fitilli triko elbise – uzun kollu şık tasarım [elbise] marka:neva wear kadın renk:siyah materyal:örme
+TST_2b1193d5a6bcb1 | ipad air 11 inç m3 tablet ekran koruyucu | ipad 11 a16 2025 10. nesil 10.9 uygulama aparatlı tam kapatan temperli ekran koruyucu kırı [tablet ekran koruyucu] marka:m.tk moveteck renk:beyaz
+TST_5e1cc27c6c8e26 | galatasaray bornoz | hera ultrasoft unisex bornoz | erkek kadın bornozu | ultrasoft | çeyizlik [bornoz] marka:güvenal unisex renk:mor materyal:pamuk
+TST_cabebe99f155fa | italya tişört | mizahi kurbağa kahve tasarımlı eğlenceli karakter %100 pamuk premium kumaş [t-shirt] marka:colermi unisex renk:siyah materyal:%100 pamuk
+TST_b9b6745257b688 | minik oyuncak bebek | 64196 minik bilim insanı - bilim ve oyun 5 yaş [eğitici oyuncak] marka:pshoplay
+TST_cd04196cbdb3f0 | derecesiz gözlük çocuk | kadın erkek unisex mavi işık korumalı uv 400 leopar desenli & siyah 2'li avantajlı set [mavi işık korumalı gözlük] marka:glimmergroove unisex renk:çok renkli
+TST_7c7c1b4cc93d32 | masa üstü telefon tutucu | tüm modellere uyumlu masa üstü ahşap telefon standı, tutacağı( ahşap telefon tutucu) [araç içi telefon tutucu] marka:ensdizayn renk:beyaz materyal:ahşap
+TST_360dd008b62f17 | mini led işık | uv led ultraviyole oje ve tırnak kurutucu akrobat uv lamba 5v usb profesyonel tip [oje kurutucu] marka:gaman
+TST_cb149436bcc2d1 | telefon kaplama | vivo y21s mavi işık filtreli nano kılıf uyumlu ekran koruma filmi çizilmelere ve darbelere [ekran koruyucu film] marka:milat tech
+TST_24603e91c09da4 | bebek cibinlik | örgülü park beşik uyku seti [bebek & çocuk uyku seti] marka:home renk:pembe materyal:pamuk polyester
+TST_c6ea765d4d4e86 | ipek sıva | premium ipek siva elegance 16 2kg paket düz beyaz [çizim ipi] marka:vakar
+TST_c109c956f8c7f7 | kpss çıkmış sorular | karekök diziler sıfır / yeni baskı karekök ayt diziler [sınav hazırlık] marka:karekök yayınları
+TST_571d541c5368cb | losyon | clinic nemlendirici losyon 200ml (seramid cay ağacı yağı centelle ) [vücut kremi] marka:tto
+TST_314d078ab6c390 | 05 | güzelliğine renk kat: terracotta blush ile 3'lü allık paleti no: 01 [allık] marka:estella renk:haki
+TST_6063cabeed066a | matkap çantası | hss din338 matkap ucu 14.5 mm tekli [takım çantası & avadanlık] marka:todrill
+TST_3ce7cacf121e8e | winnie | samsung galaxy s25 uyumlu winnie the pooh kolaj tasarım baskılı şeffaf kılıf [kapak & kılıf] marka:space star renk:çok renkli materyal:silikon
+TST_0d1991483188f3 | 34 inç monitör | mag 32cq6f 31,5″ 180hz 0,5ms rapid va adaptive-sync wqhd gaming (oyuncu) monitör [monitor] marka:msi renk:siyah
+TST_2ad947be88d8c8 | fairy bulaşık makinesi deterjanı | akıllı kapsül pro max bulaşık makinesi tableti 40'lı x 3 adet (120 kapsül) [bulaşık makinesi deterjanı] marka:bingo
+TST_04e5b3163fcb8a | yüz bakım kremi | soft nemlendirici vücut bakım kremi 200ml, el yüz vücut, e vitamini, jojoba yağı, x2 adet [vücut kremi] marka:nivea
+TST_7286628a18e8a7 | porsima yağdanlık | kokusuz kandil yağı 200ml duman is yapmaz [yağdanlık] marka:alpspr renk:sarı
+TST_a746f6860dc91c | kahverengi şal | premium jakar şal dalga desen - kahverengi [tesettür şal] marka:madame polo kadın renk:çok renkli
+TST_748a85ff5f213f | enza home mutfak masası | 90 x 40 cm katlanir mutfak masasi [mutfak masası] marka:güneyahşapmobilya renk:çok renkli materyal:mdf
+TST_c17ed58f3cad5a | çocuk gloss | ortopedik kız babet bebek balerin ayakkabısı glossy series cf2501 rugan siyah [babet] marka:beebron kadın renk:siyah materyal:suni deri
+TST_26eb1d50b3e0c9 | kapı kulpu | gm 077 novado düğme kulplu 4 kapı 2 çekmeceli gardırop [dolap ve gardırop] marka:metalia renk:beyaz
+TST_52098c77ab572f | palex | palex el yüz kurutma cihazı 2500 watt abs krom kaplama 2 adet [el kurutma makinesi] marka:enz
+TST_dca37ca9a426ff | tığ seti | el işi çeyizlik havlu kenarı el örgüsü tığ işi/havlu kenarı/el yapımı/el işlemesi/ [havlu] marka:papatyam renk:kırmızı materyal:polyester
+TST_1fba80dd9f5eea | raf tutucu | 2 adet 6 bölmeli plastik tabaklık kurutmalık tencere kapaklık düzenleyici organizer düzenl [dolap içi düzenleyici] marka:kitchen dream renk:beyaz materyal:plastik
+TST_6c063ec9232b91 | sukulent saksısı | üçlü beton saksı seti beyaz-gold kaktüs sukulent saksısı [saksı] marka:loremy renk:turkuaz materyal:beton
+TST_585f0bb86e1eba | karmen çikolata | 32 adet karton kutu damat bohça çikolatası [çikolata] marka:afyoresel
+TST_4d88b20d7898a1 | kahve takımı | ikebana 12 parça 6 kişilik porselen kahve fincan takımı [kahve fincanı] marka:heda porselen renk:beyaz materyal:porselen
+TST_048abcd5afc579 | kadın çok renkli spor ayakkabı | seager hiker - sunny dream kadın siyah günlük ayakkabı [sneaker] marka:skechers kadın renk:siyah materyal:tekstil
+TST_9352e612a343a1 | pembe şönil | çift taraflı renli duman desenli modern raşel örme yastık kılıfı [kırlent & kırlent kılıfı] marka:realhomes renk:pembe materyal:polyester
+TST_1e6273c20486ed | black deer tabanlık | 101 plus - siyah ortopedik deri tabanlık topuk jeli destekli topuk dikeni [tabanlık] marka:icemen materyal:deri
+TST_05090b0043bd95 | bisiklet gidon | el nino 29 jant full süspansiyon alüminyum kadro enduro bisikleti 11s freeride bisiklet mo [bisiklet] marka:kron erkek renk:haki materyal:alüminyum
+TST_466b876179fb29 | tekerlekli paten | deniz kızı işıklı paten kask koruma seti 2+2 kız çocuk pateni silikon teker,taşıma çantalı [paten] marka:sportaj kadın renk:pembe
+TST_b6c5d0010b24ee | hastane çıkışı kız | pembe dantelli fırfırlı kız bebek hastane çıkış seti 10 parça kız bebek [hastane çıkışı] marka:ponpon baby kadın renk:siyah materyal:pamuklu
+TST_f8bbfecd0c083a | kadın bordo deri ceket | kadın yeşil biker suni deri ceket [ceket] marka:shzn kadın renk:yeşil materyal:suni deri
+TST_4a30e0b663f866 | küçük bal kabağı | tahılsız bal kabaklı kuzu etli yaban mersinli küçük irk yetişkin köpek maması 2.5 kg [köpek kuru maması] marka:n&d unisex
+TST_4c43724abda345 | morca laptop çantası | everyday 16 inç bilgisayar çantası gri a08jtaa [notebook çantası] marka:hp unisex renk:gri
+TST_b90735189a6cf7 | brow | 12 renk crayon mum boya silinebilir cr004 [pastel boya] marka:play doh renk:sarı
+TST_94b8efa13a1273 | 3d yapboz | | petday | sevimli kedi kendin yap – 3d yapboz mini blok set (250 parça) [3d yapboz] marka:mekansm
+TST_2bffcaf3264755 | popo kaldıran tayt | kız çocuk biker penye 2'li tayt b7616a825sm [tayt] marka:defacto kadın renk:siyah materyal:pamuk
+TST_ab7be46e9e51d1 | saç vaks | x-treme dökülen ve geç uzayan saçlar için e vitamini katkılı özel bakım şampuan x 2 adet [şampuan] marka:revox unisex
+TST_ddd4f0a865fe4c | asma dolap | mobiga linda kirli sepetli çok amaçlı banyo dolabı antrasit [banyo rafları] marka:home renk:gri materyal:suntalam
+TST_2a862106f7ed74 | aux | usams bluetooth 5.0 receiver usb aux wireless araç kiti telefon konuşma müzik dinleme ba01 [bluetooth araç kiti] marka:livx
+TST_f8b5d01ec291bd | çift anahtarlığı | dk tuning lion aslan logo krom metal stil anahtarlık [oto anahtarlık] marka:peugeot
+TST_c46f601d2fabb9 | smothie blender | tartiyon cam hazne çift paslanmaz çelik bıçak buz kırma doğrayıcı mutfak robotu [blender seti] marka:karaca renk:siyah materyal:plastik
+TST_d3dd25792348a7 | telescopik | telescopic gold maskara & maybelline super lock kaş sabitleyici & lash sensational  mini m [maskara] marka:l'oreal paris
+TST_d719b09093a3c4 | saks mavisi kadın gömlek | yakası fular detaylı dökümlü bluz [gömlek] marka:fever kadın renk:çok renkli materyal:belirtilmemiş
+TST_5279c277c7af58 | füme pantolon | korsaj kemerli pantolon - likralı krep kumaş günlük rahat kalıp [kumaş pantolon] marka:floral sport kadın renk:gri materyal:kumaş
+TST_1e40975a957434 | zigon sehpa çanta | hayal 4'lü kare zigon sehpa seti gold ayak, krem mdf [zigon] marka:puklife renk:altın materyal:mdf
+TST_8ff8998b71b193 | ruşur taşı | cream bar pink 90gr x 8 adet [katı sabun] marka:dove
+TST_ab2a9eb68bdd3f | duracell aaa pil | d boy (büyük) pil 20 adet [pil & şarj cihazı] marka:duracell
+TST_f97c0de234ec96 | oversize şişme mont | çocuk unisex şişme yelek – fermuarlı kapitone şişme mont yelek – kışlık sıcak tutucu dış g [yelek] marka:sipsirin unisex renk:siyah
+TST_4a19b5131dcc24 | fabrika çizme | klasik çelik burunsuz iş ayakkabısı [iş ayakkabısı & çizmesi] marka:newkamp renk:siyah
+TST_2097a6ddc71fcf | örümcek adam doğum günü konsepti | lateks balon siyah 10 adet kb1252 [balon] marka:balonevi renk:siyah
+TST_84e3fcd3211cef | miraç çağrı aktaş kitapları | dönüşüm [roman] marka:kırmızı kedi yayınevi
+TST_8c2af89f6c2e26 | hasır ip | iphone tüm modellere uyumlu lightning siyah hasır hızlı şarj aleti kablosu örgü şarz data  [şarj aleti] marka:mezigarc renk:siyah
+TST_e58c2b4f56d818 | iphone 15 kamera koruyucu | apple iphone 15 uyumlu kamera lensi koruyucu mercek lens mavi [ekran koruyucu film] marka:merwish
+TST_0e8598e9963ec6 | mono uçlu kalem | hexagon-r 0.5mm versatil kalem gümüş [uçlu kalem] marka:scrikss renk:beyaz
+TST_0ae159071d7886 | karar hali halı | modern eskitme desen %100 doğal iplikli ipekli halı gri/sarı [halı] marka:somtaş hali renk:gri materyal:bambu
+TST_6ff7aceb40f0f8 | çekmece düzenleyici | 6'lı modüler kaşıklık seti - mutfak düzenleyici çekmece içi organizer bıçaklık kepçelik be [kaşıklık] marka:meleni home renk:beyaz materyal:plastik
+TST_103bf49e467d45 | erzak | 2 adet beslenme sandwiç tost saklama taşıma kabı qlux bpa içermez okul kamp piknik l-00410 [saklama kabı] marka:mons renk:mavi materyal:plastik
+TST_436f4b5d60e5a9 | kırtasiye ofis malzemeleri | boss original fosforlu kalem 30'lu tam set tüm renkler [fosforlu kalem] marka:stabilo renk:çok renkli
+TST_d824d6bda60abb | mama termosu | unisex termos stan 16oz classic trgr- actn mug hgrn eu [termos] marka:stanley renk:yeşil materyal:çelik
+TST_9407201272a3b0 | şarjlı testere | sc 8611 + 5808 akülü budama makası ve testere 40 mm [dal budama makinesi] marka:suca
+TST_d7dc224ba79b22 | bargello 153 | tta today kadın parfüm edp 100 ml. [parfüm] marka:avon kadın
+TST_229f1a3960dbd8 | tane sumak | tane karabiber 100 gr [sumak] marka:hatay şahin çiftlik
+TST_57578589d15618 | dolaplı tv ünitesi | model dream tv ünitesi 150 cm 3 kapaklı tv sehpası beyaz atlantik çam tv konsolu televizyo [tv sehpa & ünitesi] marka:izcodesign renk:kahverengi materyal:suntalam
+TST_6c7329507625fd | tava | flashtrend 04alm001439 seasons çorba kasesi,, tekli modacatch 224120 [tava] marka:storemax materyal:döküm
+TST_a9f2bf2da7dbe4 | ahtapot peluş oyuncak | pijamalı peluş ayı 30 cm [peluş oyuncak] marka:toyfest unisex renk:çok renkli
+TST_d9f4891a7dbf89 | banyo temizlik | golf tasarımlı silikon banyo tuvalet klozet temizleme fırçası ve tutucu set [tuvalet fırçası] marka:indirimkap renk:beyaz materyal:plastik
+TST_75130584a7f85c | dualsense | ürkütücü kontrol ünitesi standı ps4/ps5/xbox uyumlu dualsense kol standı joystick standı k [playstation aksesuarı] marka:goplast premium renk:beyaz
+TST_625833aa77cd69 | iyi bir kızın cinayet rehberi | bir kabusa dalmak (ciltli) kitabı / r. ayça kavraz / artemis yayınları [roman] marka:artemis yayınları
+TST_98c608f4c03ee7 | laptop çalışma masası | mira metal çalışma masası bilgisayar laptop masası atlantikçam-siyah [çalışma masası] marka:eyibil mobilya renk:beyaz materyal:suntalam
+TST_79f9f9cd166308 | kalemlik cüzdan | -disney minnie mouse özel seri pop out kalem kutusu [kalem kutusu] marka:smiggle renk:siyah materyal:plastik
+TST_897d6868221311 | küçük boy hurç | 5 adet - mega boy baza altı pembe çizgili hurç 74 x 46 x 22 cm [hurç] marka:serstil renk:pembe materyal:tela
+TST_e25bc9918b86f8 | kasa | esrarengiz kasaba çifte dipper [çocuk masal ve öykü kitabı] marka:beta kids
+TST_4275adc4095a90 | saç sakal boyası | royal highlifts 10-4 ultra sarı bej saç boyası - 60ml [saç boyası] marka:igora unisex renk:sarı
+TST_7942f09fdb304b | anneler için hediye | avokado peluş oyuncak (30cm) [peluş oyuncak] marka:miniso unisex renk:çok renkli
+TST_e6d7a6a973319c | probiyotik | bigflor probiyotik 10 sase [vitamin] marka:orzax
+TST_7eda55bf326da4 | skin sensual | freshly juiced %5 vitamin c serum - aydınlatıcı c vitamini serumu 35ml. [cilt serumu] marka:dear klairs
+TST_4a01c11d455280 | gri kırlent kılıfı | zarif vintage lüx saçaklı yastık kılıfı-pastel toz pembe eskitme desenli püsküllü kırlent  [kırlent & kırlent kılıfı] marka:evimde bambaşka renk:çok renkli materyal:kadife
+TST_6916c91dfaab6a | ahşap sallanan at | amigurumi diş kaşıyıcı ahşap halka sallanan at 2 [amigurumi] marka:simisso renk:bej
+TST_c27d6eb202237c | modern salon avizeleri | oliver kumandalı 3 renk işık özellikli modern gold kaplama sarkıt led avize salon avize [avize] marka:capella aydınlatma renk:altın materyal:alüminyum
+TST_bbaf230f592e24 | çardak | ev tipi aile dikiş makinesi çardağı / s59553-001 [dikiş makinesi] marka:moonstar unisex renk:bej
+TST_e873f4af627c12 | erzak saklama kabı büyük boy | arian borosilikat saklama kabı 520 ml şeffaf [saklama kabı] marka:english home renk:bordo materyal:cam
+TST_9d5228eae10fa0 | çocuk kürk | kız çocuk kürklü su soğuk geçirmez bot [bot & bootie] marka:aleza shoes kadın renk:gümüş materyal:suni deri
+TST_1176b287438bbf | müslüm gürses | müslüm gürses bu gece su içecegim 20-30 cm retro ahşap tablo tkfx4514 [tablo] marka:home renk:çok renkli materyal:mdf
+TST_7330d5490a97e2 | raid haşere ilacı | bahçe ilaçlama seti tüm uçan ve yürüyen haşerelerde etkili/solfac super 100ml/2lt basınçlı [haşere ilacı] marka:bayer
+TST_f687b36b4fcee7 | adabebek bebek takımı | sweeta baskılı badyli elbise [bebek takımı] marka:tofigo baby kadın renk:pembe materyal:pamuklu
+TST_57a3477c690504 | erkek eşofman üstü | dortmund yellow alternatif logo detayli dalgiç kumaş eşofman üstü [spor ceket] marka:sari unisex renk:siyah materyal:pamuk polyester
+TST_5075ac665e0075 | raf tutucu | geyik tasarım takı standı çok amaçlı düzenleyici organizer yüzük küpe kolye mücevher organ [makyaj & takı organizeri] marka:candyshine renk:siyah materyal:plastik
+TST_aff222ea6c19c6 | iphone 13 pro max kamera lens koruyucu | iphone 13 pro max pers alüminyum kamera lens - gold - toabm6609-8713 [ekran koruyucu film] marka:ceptetoptan
+TST_d451c1541f1294 | masat | 10 adet 500 gr vakumlu çiğköfte [meze] marka:master çiğ köfte
+TST_6b7dfe219d623b | castrol power1 4t 10w-40 motosiklet motor yağı | spheerol ep 2 900 gr gres yağı [yağ & motor katkısı] marka:castrol
+TST_fa6d3f8b5842fa | çekyat | aktivite koltuğu kanepe koltuk yataklı kanepe üçlü koltuk üçlü kanepe (bej) (90x200cm) [kanepe] marka:gaga mobilya renk:gri materyal:tekstil
+TST_21291c257eba44 | yavuz sultan selim | yavuz sultan selim - deri peç - arma - osmanlı padişahları - leather patch [avcılık aksesuarı] marka:seyhan askeri malzeme renk:bej
+TST_0c90fd98a10641 | kehribar tesbih | sürmeli toz kehribar [tesbih] marka:stil gumus tesbih renk:bordo materyal:sıkma rozu
+TST_61f092f44756f2 | bigdart yelek | peak yeni sezon standart kalıp dik yaka erkek şişme yelek [yelek] marka:lc waikiki erkek renk:siyah materyal:pamuk
+TST_23636e4fd5c1da | karabuğday | granola çikolata parçacıklı ve fındıklı 250g,%44 yulaf ezmesi,lif kaynağı,kahvaltılık [müsli ve granola] marka:kellogg's
+TST_86aba481aa281e | dispenser | yapışkanlı sabunluk banyo mutfak lavabo metal katı sabunluk beyaz [sabunluk] marka:grassi renk:beyaz materyal:metal
+TST_bc59b12844d406 | katlanır ayna | ayna bizoteli  füme 25 cm x 25 cm 4 adet [ayna] marka:paşabahçe renk:gri materyal:cam
+TST_04fc55d3834396 | cry baby | 7 adet sevimli minik kaka şaka figürü - minik minimal dekor süs oyuncak çocuklar eğlenceli [diğer figür oyuncaklar] marka:a life in games unisex
+TST_429ecb847de170 | vita | muto trüf ve mangosteen özlü kırışıklık niacinamide ton eşitleyici serum 30 ml [cilt serumu] marka:byeolee
+TST_1072376685cb28 | huawei watch gt4 kordon | huawei watch gt2 gt3 42mm uyumlu 20mm örgü metal hasır kordon [akıllı saat kordon] marka:nezih case renk:siyah materyal:metal
+TST_3957306ec8c903 | bohem portmanto | vm-36300 dore ceviz vestiyer portmanto [portmanto] marka:abre renk:beyaz materyal:suntalam
+TST_e4c1ca7a624591 | 2 katlı sunumluk | porselen vintage blue 8 parça 4 kişilik kahvaltı takımı [tabak] marka:akayev renk:çok renkli materyal:porselen
+TST_8c40d8c631e6a1 | boncuk seti | şeffaf akrilik 12 parça boncuk kahvaltılık seti şekerlik sosluk reçellik seti çay bardağı  [kahvaltılık] marka:anadolu saray renk:beyaz materyal:boncuk
+TST_f8389daff1a697 | servis tabağı | cam peynir servis tabağı seti 31x20cm [servis seti] marka:mikasa moor renk:yeşil materyal:paslanmaz çelik
+TST_22ddedf61a33f7 | hello kitty eşofman | basic kız çocuk spor fermuarlı eşofman takımı [eşofman takımı] marka:mışıl kids kadın renk:pembe materyal:pamuk polyester
+TST_260925e11f2814 | mutfak için avize | dilberay lüks salon - mutfak - yatak odası modern bal rengi camlı cafe-mutfak tekli sarkıt [avize] marka:modavize renk:sarı materyal:cam
+TST_7ff35f9fcf1d10 | bioblas kepeğe karşı şampuan | scalpcare şampuan 28 bitkisel özlü, sebum dengeleyici | kepek ve dökülme karşıtı [şampuan] marka:atomy unisex
+TST_57ebc3a9653163 | bioxcin yüz güneş kremi | secret tone-up güneş koruyucu spf 50+ | nemlendirici, ton eşitleyici, suya dayanıklı [yüz güneş kremi] marka:xaura
+TST_b1fdd3074e18f1 | park sensörü | ssangyong actyon dijital ekranlı ses ikazlı beyaz araç park sensörü [alarm & sensör & merkezi kilit] marka:le moins cher
+TST_9a50fcde50a725 | katlı sepet | metal 3 katlı beyaz yana açılır tekerlekli patates soğan sepeti sebze meyve sepeti sebzeli [sebzelik] marka:bayev materyal:metal
+TST_a670d116909aa6 | modalife mutfak sandalyesi | neta serisi, 1.sınıf babyface kumaş sandalye, beyaz gürgen ayak, 1 adet gri sandalye [mutfak sandalyesi] marka:canisa renk:gri materyal:ahşap
+TST_166409440c25e1 | mr eds | nargile   nargile [nargile] marka:megahed
+TST_61099222b4b7e4 | sitrin taşı bileklik | akik doğal taş bileklik – anneler günü, sevgili ve arkadaşlara özel – şık ahşap kutulu hed [bijuteri bileklik] marka:panelvankit unisex renk:kırmızı materyal:doğal taş
+TST_ecff83a52c6517 | elektrikli semaver | ask armağan 120 bardak semaver çay otomatı [çay makinesi] marka:armağan renk:ekru materyal:çelik
+TST_a50a4a6ca10388 | süpürge işığı | 18000pa ultra güçlü şarjlı araç içi süpürge üfleme özellikli yeşil işık teknolojili [araç içi süpürge] marka:teknodrone
+TST_55b1a1ef54affb | reeder android cep telefonu | cep telefonu c53 8/256gb relame türkiye garantili [android cep telefonu] marka:realme
+TST_86ad13e84fa16b | bakır kahvaltılık | kahvaltılık - çerezlik bakır mini kase 6'lı set kırmızı [kase] marka:kayseri bakircilik renk:gri materyal:kaşe
+TST_9346cb8a2d09f8 | draje | toffix mix şeker 1000 gr. (1 poşet) [şekerleme] marka:elvan
+TST_eaa34f50e2956d | bariyer onarıcı krem | bariyer güçlendirici yoğun nemlendirici cica jel krem 40ml [yüz kremi] marka:licape
+TST_f28bde84accc90 | taç döküm tencere | granit basık tencere siyah inox 32 cm [tencere] marka:meşeler renk:siyah materyal:granit
+TST_04f792af8ae9ac | erkek keten ceket | lacivert düğmeli keten yün ceket [blazer ceket] marka:w collection erkek renk:lacivert materyal:yün
+TST_a3080de9a1da05 | s harfli kolye | star wars gümüş kaplama örme zincir kolye [bijuteri kolye] marka:bu farklı unisex renk:gümüş materyal:gümüş kaplama
+TST_87f16e7453ae86 | silgi | paketli çikolata şeklinde kokulu silgi – çikolata silgi – tekli [silgi] marka:nasadan
+TST_79fc72b5bce805 | silter | çelik tabanlı katlanabilir 1000 watt seyahat ütüsü [buharlı ütü] marka:kiwi renk:gri
+TST_e4f941f22b6667 | baca şapkası | baca boru döneri sapka rüzgar gülü [şömine ve soba ekipmanları] marka:by yağlıoğlu
+TST_5f5e2e2cc4c14c | ekmek sepet | hasır piknik sepeti [ekmek kutusu ve sepeti] marka:emeksanatı renk:haki materyal:hasır
+TST_b922d63bc39583 | geri vites kornası | hella geri vites kornası 12-36v 3sl009148-141 [oto korna] marka:polatli oto aksesuar
+TST_160ec68ad0c4a4 | coco | veramix kaktüs sukulent saksı harcı bitki toprağı özel karışım ithal torf - cocopeat 10 li [torf ve topraklar] marka:mf botanik
+TST_465a204a13c99e | toyota | 1997-2001 supermute 2'li silecek takımı 450mm 450mm [silecek & aksesuar] marka:nkt group
+TST_51fea72da19462 | mug kupa | beyaz n harfi çiçek tasarım kupa bardak ve anahtarlık [kupa] marka:procity renk:beyaz materyal:ahşap
+TST_1a29adee523c9b | çanta pulu | 30 mm (3 cm) deri pul çanta, supla pulu 25 gr [boncuk] marka:miraylahobi
+TST_2686e0a1dec951 | yapışkanlı folyo | alkor 380-0034 sarmaşık desen yapışkanlı cam folyo (45cm x 1mt) [yapışkanlı folyo] marka:d-c-fix renk:çok renkli
+TST_13e3ba21debd26 | mekanizmalı cüzdan | erkek siyah deri kartlık 000a2d301118 [kartlık] marka:derimod erkek renk:siyah materyal:hakiki deri
+TST_f55777824158da | çocuk odası | plastik halı katlanabilir çift taraflı plaj kamp piknik balkon hasır mat savan karavan hal [kilim] marka:simerev hali home consept renk:bej materyal:polipropilen
+TST_cc94d6c78fe2b2 | yağlı pastel | pastel rüya çiçek bahçesi yağlı boya görünümlü dekoratif dikdörtgen salon/ofis/ev/mutfak t [tablo] marka:teona ahşap renk:çok renkli materyal:ahşap
+TST_3e2b1181abb715 | refka elbise | dantelli başörtülü fermuarlı bilekleri lastikli kayma yapmaz namaz elbisesi [tesettür elbise] marka:medipek kadın renk:yeşil materyal:pamuk polyester
+TST_381b0c8263a75f | furby | müzikli yürüyen miyavlayan yalayan kuyruk ve başını sallayan ses kaydını tekrarlayan peluş [peluş oyuncak] marka:magicway unisex renk:gri
+TST_7b7622653ca581 | nehir çelik tepsi | saray sade 12 kişilik 60 parça kutulu çatal kaşık takımı [çatal & bıçak & kaşık] marka:nehir renk:gri materyal:paslanmaz çelik
+TST_8a75957ebae185 | mutfak erzak dolabı | 3'lü set 2 sirali biçaklik,9 bölmeli kaşiklik,5 bölmeli kaşiklik [dolap içi düzenleyici] marka:hanemde renk:siyah materyal:plastik
+TST_937b00179b9ec9 | delgeç | norex 40 sayfa kapasiteli metal delgeç [delgeç] marka:everart renk:siyah
+TST_14887705bcc6fb | bir kürt sevdim veda | ademden önce - jack london - [dünya edebiyatı] marka:türkiye iş bankasi kültür yayinlari
+TST_eba4032d1afd09 | non ıron gömlek | worner 1 erkek %100 pamuk jean gömlek [gömlek] marka:lee cooper erkek renk:beyaz materyal:dokuma
+TST_d67ec49e3b3dea | ihsan oktay anar | bir kibritle yok olmak - 1 [roman] marka:guardian kitap
+TST_6265b8c7fcba5c | pet | 1 paket 8 adet üst vücut ve göğüs bakım bantları bantları isı bantları upbody41 [yakı bandı] marka:uniquem
+TST_7791ccbad643a0 | köpek adam | köpek adam pirelerin tanrısı - köpek adam 5 / dav pilkey / / 9789752127197 [mizah & karikatür] marka:altın kitaplar
+TST_c8c1bb717dde17 | der ceket | erkek bej dik yaka kapitone elyaflı mont a32y6097 [mont] marka:avva erkek renk:bej materyal:polyester
+TST_882b9e99d4d881 | patiksiz tulum | bebek yuvası uyku tulumu (antrasit) [uyku tulumu] marka:pirilti collection unisex renk:gri materyal:poliüretan
+TST_c7b29db5ad2331 | rattan abajur | rafya saçaksız kablolu abajur masa lambası eskitme gold ayak [abajur] marka:maison avf renk:bej materyal:metal
+TST_7e6fef31704068 | elektikli süpürge | lotus trend et14000 toz torbalı elektrikli süpürge lacivert [toz torbalı süpürge] marka:arnica
+TST_d7a237fa710bfa | smart akıllı saat | samsung galaxy z fold3 uyumlu akıllı saat ultra max 2024 kordon hediyeli amoled ekran [akıllı saat] marka:bunnys renk:pembe
+TST_4da53d4dce866e | 4 lü metal ayakkabılık | şelale ayakkabılık dolabı rafı 3 bölmeli çok amaçlı dolap cordoba [ayakkabılık] marka:remaks renk:beyaz materyal:suntalam
+TST_77abb87d2f646f | kadın tote çanta | kyomi baget çanta chocolate mousse [omuz çantası] marka:manuka kadın renk:çok renkli materyal:polyester
+TST_22ed70b1e159d1 | manifest kitabı | suikast sınıfı 6 ve iblis keser 15 2li set + hediyeli [roman] marka:gerekli şeyler
+TST_21af6d76bbc505 | lacivert kapşonlu sweatshirt | bisiklet yaka siyah basic sweatshirt 1610198-900 [sweatshirt] marka:mavi kadın renk:gri materyal:pamuk polyester
+TST_be785e503743b2 | lc waikiki erkek giyim | uzg store'dan stilinizi oluşturun | bisiklet yaka çizgili kadın tişört [t-shirt] marka:lc waikiki unisex renk:ekru materyal:belirtilmemiş
+TST_5007fcf9137a38 | otacı şampuan | intense keratin aşırı yıpranmış saçlara özel saç bakım şampuanı-250 ml-vegan [şampuan] marka:urban care unisex
+TST_b2a88c00c240cc | kalıp sabunluk | viva 2'li mutfak sıvı sabunluk, beyaz [sabunluk] marka:prima nova renk:beyaz materyal:plastik
+TST_557f208c8090b8 | 4 bıçaklı blender | ms6cb61v5 vakumlu blender seti 1000 w [blender seti] marka:bosch renk:siyah materyal:plastik
+TST_da26af78e795e3 | çelik göbek piercing | çelik kalp model tektaş göbek piercing gümüş renkli [piercing] marka:sacce scarves&accessories kadın renk:çok renkli
+TST_41e85d231aea74 | yazma pulu | kutulu canlı kırmızı 20 gram çanak,baget,pleksi,yazma,oya,epoksi,terlik,mendil.hobi pulu [boncuk] marka:312 konsept
+TST_b7551995991aef | eskitme vintage halı | london 19 krem salon halısı kesme halı yolluk antre hol halısı yumuşak doku yatak odası ha [halı] marka:cool halı renk:bej materyal:polipropilen
+TST_7a7686b67a4659 | camlı mutfak dolabı | arges dolap 7 raflı 8 çekmeceli tek kapaklı 132x30x195 antrasit-aytaşı/aytaşı [çok amaçlı dolap] marka:dienni renk:çok renkli materyal:suntalam
+TST_ce788b42474abd | erkek kolsuz tişört | siyah rujinu kpdh jinu demon hunter tees kpop huntrix t crewne [t-shirt] marka:tarzsokak unisex renk:siyah materyal:pamuk polyester
+TST_5766bf68b6d221 | yazıcı sarf malzemeleri | toner pa-210 [kartuş] marka:pantum renk:siyah
+TST_d8d9bf750a980e | elektirikli semaver | tta2010 teaxx cam demlikli çay makinesi [çay makinesi] marka:bosch renk:siyah materyal:çelik
+TST_dd958d51cb96f3 | skin sensual | nordea akneye eğilimli ciltler için arındırıcı serum [cilt serumu] marka:bionnex
+TST_f7bba80fdabb07 | yarım kask | çocuk kaskı [motosiklet kaskı] marka:okyanusmoto renk:sarı
+TST_4246c6314c958a | i harfli kupa | s harfli tavşan kupa - patchwork / yamalı desenli isme özel kupa - pastel vintage tarz hed [kupa] marka:beramussa renk:ekru materyal:porselen
+TST_10d684da3912b6 | sıyırma bıçağı | nostalji puantiyeli yemek bıçağı kırmızı [bıçak ve bıçak seti] marka:emsan materyal:çelik
+TST_2b0b54e69ef36b | hızar | alman strong 15 hp çelik şanzıman benzinli ağaç odun dal motorlu hızar bıçkı testeresi orm [zincirli ağaç kesme makinesi] marka:stanrayf
+TST_07c492edcb0e2d | mad parfüm kadın parfüm | man uomo edt 90 ml [parfüm] marka:zara erkek
+TST_6bb5d05ab42a2b | milkshake blender seti | activflow expert 4 bıçaklı 1500w güç 1,5 litre cam hazneli blender & doğrayıcı mutfak robo [blender seti] marka:tefal renk:altın materyal:cam
+TST_49b8eac3632471 | kiwi robot | xu7000/01 homerun 7000 series aqua islak ve kuru robot süpürge siyah-gold [robot süpürge] marka:philips
+TST_66f2fb756c6b4c | yazma pulu | mini yeşil çanta supla perde oya yazma patik pulu lazer kesim 50 gr [boncuk] marka:gönülden tasarım
+TST_c930693c03d2f0 | çocuklar için fotoğraf makinesi | x half dijital fotoğraf makinesi – analog hissiyat, film simülasyonlu retro kamera siyah [dijital fotoğraf makinesi] marka:fujifilm renk:siyah
+TST_44701af90ef224 | kuş kovar | hologram kuş uzaklaştırıcı şerit 50 metre [sinek ilacı ve kovucu] marka:kovmatik
+TST_0a0a76b3f2c7d2 | yapışkanlı duvar kağıdı | şeffaf yapışkanlı folyo 37 cm x 2 metre [yapışkanlı folyo] marka:elife ticaret renk:beyaz
+TST_412844e4f87372 | havya istasyonu | krem sivi lehim solder paste 42 gr xgsp50 183 derece [lehim & havya] marka:mechanic
+TST_d9facaa02b6085 | kirli çamaşır | safari baskılı çok amaçlı büzgüsüz oyuncak kirli çamaşır sepeti katlanır düzenleyici sepet [sepet] marka:ph prendi home renk:yeşil materyal:kumaş
+TST_0eeb8c5963cf3b | melamin tepsi | seabreeze melamin tepsi 37x18 cm mavi - yeşil [tepsi] marka:english home renk:ekru materyal:melamin
+TST_f9bb5af77c3d9a | 3 tekerlekli motor | apec apt4 üç tekerlekli motosiklet [elektrikli motosiklet] marka:volta renk:çok renkli
+TST_aeffd1118deb7e | mutfak set | caroline 54 parça 12 kişilik yemek takımı 6343 [yemek takımı] marka:güral porselen renk:bej materyal:porselen
+TST_12f1f8084398b1 | salisilik asit sabun | yoğun kükürtlü sabun 2li set kükürt sabunu/salisilik asit ve çay ağacı yağlı [katı sabun] marka:aytan home
+TST_d4eeee27ef9ece | kız çocuk trenç | uzun kollu suni kürk yaka detaylı femuarlı bomber ceket [ceket] marka:koton kadın renk:kahverengi materyal:tekstil
+TST_6408bfa3c5673f | masura | vt875132 endüstriyel kazima 20cm [kesici makas] marka:vip-tec
+TST_90a6cd91d47a2f | bebek odası tablo | ahşap tablo tabakta krepler çilekler ve üzümler (35x50 cm boyut) [tablo] marka:cakatablo renk:kırmızı materyal:mdf
+TST_d3cd6ba68f76c5 | ocak örtüsü | hasır dokulu amerikan servis salyangoz örgü tekli supla [runner & amerikan servisi] marka:halımax renk:beyaz materyal:jüt
+TST_cb22122841d762 | masa üstü | ayıcık bi kahve seti / kahve temalı 3'lü ayıcık seti / sevimli masa üstü dekoratif obje [dekoratif obje ve biblo] marka:figurio renk:kahverengi materyal:plastik
+TST_101e74cda90485 | plastik raflı dolap | çelik borulu plastik raflı siyah bez dolap gardırop [bez dolap] marka:burak renk:siyah
+TST_225483a8fd4f6c | voop | kudret narı & propolis kapsül 375 mg 60 kapsül 3 adet [vitamin] marka:balen
+TST_c37b9cf1972d38 | çiçekli şal | çift taraflı siyah ekoseli yünlü omuz şalı 70x190cm bağlanabilir kışlık atkı şal [tesettür şal] marka:multi brand kadın renk:siyah materyal:akrilik
+TST_af5f0695d826fc | vintage eşya | ahşap çerçeveli caravaggio - aziz paul'un dönüşümü tablo - the conversion of saint paul-81 [tablo] marka:storizaa renk:beyaz materyal:ahşap
+TST_19e502d0d0d859 | tüp saç boyası | nutrisse yoğun besleyici kalıcı krem saç boyası 8n bal köpüğü yeni model 963583 [saç boyası] marka:store unisex renk:bej
+TST_66da53d51712c5 | el omuz çantası | super mario oyun baskılı bez çanta omuz çantası model 3 [omuz çantası] marka:art hediye unisex renk:beyaz materyal:polyester
+TST_07a34988309ae1 | ramazan yetkin soru bankası | kpss eğitim bilimleri 3 'lü fasikül fasikül deneme sınavı (dk) [sınav hazırlık] marka:murat yayınları
+TST_a6dbf5f5839207 | 6 li kahve sunum tepsisi | 6’lı tek kelebekli kare metal sunum tepsisi seti – gold detaylı kahve yanı lokum/çerez ikr [tepsi] marka:skygo renk:gümüş materyal:krom
+TST_b847e5e50cdc53 | sıfır kol mont | super slim fit ekstra dar kesim desenli spor ceket [ceket] marka:kiğılı erkek renk:lacivert materyal:elastan
+TST_c0eea3d47d3411 | yakut bileklik | sertifikalı doğal inci ve yakut taşlı gümüş detaylı bileklik [bijuteri bileklik] marka:deniz doğal taş kadın renk:çok renkli materyal:inci
+TST_6865db678d4736 | telefon kaplama | vivo y28s mavi işık filtreli nano ekran koruma filmi çizilmelere ve darbelere dayanıklı [ekran koruyucu film] marka:milat tech
+TST_8d3116c20d4c80 | vita ceel | kudret narı-sarı kantaron yağı soft kapsül 100 kap x 3 adet [vitamin] marka:balen
+TST_fbe7e82a9a99a5 | defacto bayan kazak | relax fit polo yaka çizgili triko yeşil erkek kazak e8400ax/gn919 [kazak] marka:defacto erkek renk:yeşil materyal:triko
+TST_aa156a750b8a54 | telefon kaplama | huawei nova y60 mavi işık filtreli nano ekran koruma filmi çizilmelere ve darbelere dayanı [ekran koruyucu film] marka:milat tech
+TST_9f60c9b247d731 | amber elixir parfüm | black opium red edp 50ml kadın parfüm [parfüm] marka:yves saint laurent kadın
+TST_22e113be9bf678 | kemik iletimli kulaklık | tat2236pk/00 tws mikrofonlu kulaklık ( ipx4 su sıçramasına ve tere dayanıklı) pembe [kulak içi tws bluetooth kulaklık] marka:philips renk:pembe
+TST_c35bbde89aa2a0 | zade vital | forbiome 10 milyar probiyotik 20 saşe [probiyotik ve prebiyotik] marka:forbiome
+TST_54c97d9466be3a | lalafanfan | 30 cm özel seri lalafanfan peluş oyuncak ördek [peluş oyuncak] marka:heribom unisex renk:sarı
+TST_20461aa9d77cb5 | thermoad sahan seti | cory yanmaz yapışmaz tava 28 cm-gri [tava] marka:schafer materyal:granit
+TST_7f30c76e4e6d34 | ligone | tribulus terrestris for men 500 mg 60 capsules [vitamin] marka:mindivan
+TST_64a406ffabaa1e | boğazlı ayakkabı | willy hakiki deri kadın siyah kırışık galvaniz ökçe bot [bot & bootie] marka:elvinshoes kadın renk:siyah materyal:hakiki deri
+TST_70efdfa6a89d9c | tüm dersler soru bankası | paraf tyt kimya deneme 45 branş deneme [ders ve yardımcı kitaplar] marka:prf yayınları
+TST_95b9acd4dbc738 | isme özel termos | the aerolight iceflow soğuk su termosu 0,60 lt turuncu [termos] marka:stanley renk:turuncu materyal:çelik
+TST_b101f46128aa06 | fındık kıracağı | a505 twisty şişe açacağı [ceviz ve fındık kıracağı] marka:ayrstore renk:çok renkli materyal:plastik
+TST_f66bf5b598cd67 | kukla kitap | okul öncesi kes yapıştır etkinlik kitabı (makas ve yapıştırıcı ilaveli) [aktivite & eğitici kitaplar] marka:enine boyuna eğitim
+TST_9a02047146e686 | araba yıkama fırçası | mini araç oto araba klima havalandırma detaylı temizlik fırçası yumuşak tüylü 1 adet korum [oto bakım seti] marka:universal
+TST_58101ba0d76a08 | gummy vitamin | gold collagen 50 ml 10 shot [vitamin] marka:nutraxin
+TST_cdf71e54b72f9b | kulaklık kutusu | xiaomi redmi buds 6 lite kılıf karakter figürlü dişsiz toothles [kulaklık kılıfı] marka:caseonn renk:çok renkli
+TST_cd9d2603ec4787 | biryağ 5 lt sıvı yağ | aspir yağı [sıvı yağ] marka:paşazade yağ
+TST_19f52d130e8ed0 | çocuk eşyaları | klx-880 full ağaç 17 tuşlu ağaç kalimba (metod çanta çekiç full set) [kalimba] marka:midex
+TST_3ef60186914302 | galaxy watch ultra | sim kartlı, bluetoothlu,hafıza kartlı ve kameralı akıllı saat a1 [akıllı saat] marka:smartwatch renk:siyah
+TST_348276e4d1edfb | dimmer | sch asfora beyaz dımmer, 600va rl tıp, vavıen cercevesız [priz ve anahtar çerçevesi] marka:schneider electric
+TST_009b63f64905ea | sivri burun ayakkabı | fuşya tüvit (tress) maskelet detay kadın stiletto [stiletto] marka:ervanin butiği renk:pembe materyal:deri
+TST_db0af4186ed8a9 | japon | ahşap tablo fener deniz yıldızı yelkenli model mdf tablo [tablo] marka:bedeko renk:çok renkli materyal:mdf
+TST_5f890978a7c2d0 | antifrizli cam suyu | cam temizleme glass cleaner 5lt. [cam suları] marka:valet pro
+TST_eb90085621012d | massive amfi | for-x xap-350.4 4x300rms profesyonel midrange amfisi [oto amfi] marka:forx5
+TST_c57d6af5e5dca0 | çocuk parfüm | active sport yeşil edt parfüm 125 ml 1 adet [parfüm] marka:slazenger erkek
+TST_1b2d0802f71871 | örme etek | hamile denim etek [etek] marka:mango woman kadın renk:mavi materyal:kumaş
+TST_a9a4eda254b308 | iphone şarj koruyucu | iphone 18w/20w/25w fiyonk desenli şarj aleti koruyucu şarj kablosu örme aparatlı koruyucu  [kablo aksesuarı] marka:fibaks renk:pembe
+TST_d0d55f6dbeabd0 | yükselen zeka aktivite eğitici kitap | 1.sınıf okuma dizisi anetil ( a-n-e-t-i-l ) / 8 kitap set  / 2024-2025 yenii [aktivite & eğitici kitaplar] marka:mavi boncuk
+TST_21660a8adbcf68 | 4 bıçaklı blender | rondo mmr15a1 [doğrayıcı & rondo] marka:bosch renk:beyaz materyal:plastik
+TST_d7c22bfeda2208 | punch nakışlı runner | wave runner açık mavi 50x150 [runner & amerikan servisi] marka:jumbo renk:lacivert materyal:polyester
+TST_807e0815d444ec | hareketli tv askı aparatı | beko b32l 5845 4b 32" hd led tv hareketli askı aparatı [tv askı aparatı] marka:bt bayır teknoloji renk:gri
+TST_db84bcdb60e4e8 | tyt fen deneme | bilgisarmal tyt fen 25x20 deneme-zihindeneme-ist1052 [ders ve yardımcı kitaplar] marka:karma kitaplar
+TST_7dbabd4d3f17ce | dikiz aynası süsü | burhan altıntop yılbaşı ağacı araba dikiz aynası süsü [yılbaşı süsü] marka:namgo renk:çok renkli
+TST_30f1f205259e1d | deri ayakkabı | unisex marka logolu şık görünümlü rahat tabanlı günlük kullanıma uygun siyah terlik 0680 [casual ayakkabı] marka:birkenstock unisex renk:siyah materyal:suni deri
+TST_f5b73ea662dcbb | mavi renk sweat | unisex çocuk nakışlı sweatshirt [sweatshirt] marka:toontoy kadın renk:çok renkli materyal:pamuklu
+TST_8ad7af73b76573 | tofisa tesettür takım | kadin triko hirka - puf scuba etekli takim bej-siyah [tesettür alt - üst takım] marka:moda vedat kadın renk:bej materyal:kumaş
+TST_1dc009d4379e47 | iphone 18 pro max | iphone 14 pro max 18d cam ekran koruyucu - krk608511-1546 [ekran koruyucu film] marka:ceptetoptan
+TST_d1ae588c25c900 | 8.34 saç boyası | 8.34 açık kumral dore bakır renk saç boyası 60ml.,inoaboya0309049 [saç boyası] marka:l'oreal professionnel unisex renk:beyaz
+TST_6d8376ee10c434 | 2 rakam balon | retro dinazor folyo [balon] marka:düvenci ticaret renk:yeşil
+TST_9443d8f23e0507 | en çok da iyi niyet yorar insanı | yozlaşmış harabeler / emre gül / / 9786256943438 [deneme & inceleme] marka:ren kitap
