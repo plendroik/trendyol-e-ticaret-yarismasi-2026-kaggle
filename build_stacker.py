@@ -116,6 +116,10 @@ log(f"labeled rows: {mask.sum():,}  pos_rate={y[mask].mean():.3f}")
 # term-grouped folds via hash
 fold = np.array([zlib.crc32(str(t).encode()) % 5 for t in tids], dtype=np.int8)
 
+np.savez_compressed(os.path.join(ART, "stacker_features.npz"),
+                    X=X, y=y, fold=fold, feat_names=np.array(feat_names))
+log("features dumped -> stacker_features.npz")
+
 params = dict(objective="binary", learning_rate=0.05, num_leaves=127,
               min_data_in_leaf=100, feature_fraction=0.9, bagging_fraction=0.9,
               bagging_freq=1, num_threads=8, verbosity=-1)
