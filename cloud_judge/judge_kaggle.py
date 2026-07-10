@@ -19,9 +19,18 @@ import os, re, glob, random
 import numpy as np, pandas as pd
 from vllm import LLM, SamplingParams
 
-COMP = glob.glob("/kaggle/input/*trendyol*") + ["/kaggle/input/trendyol-e-ticaret-yarismasi-2026-kaggle"]
-COMP = [p for p in COMP if os.path.exists(os.path.join(p, "items.csv"))][0]
-IDS_DIR = [p for p in glob.glob("/kaggle/input/*") if glob.glob(os.path.join(p, "band_ids_part*.csv*"))][0]
+# yarisma verisi ve id dosyalarini derinlemesine ara (mount yollari degisebiliyor)
+COMP = IDS_DIR = None
+for root, dirs, files in os.walk("/kaggle/input"):
+    if COMP is None and "items.csv" in files and "submission_pairs.csv" in files:
+        COMP = root
+    if IDS_DIR is None and any(f.startswith("band_ids_part") for f in files):
+        IDS_DIR = root
+    if COMP and IDS_DIR:
+        break
+print("COMP =", COMP); print("IDS_DIR =", IDS_DIR)
+assert COMP, "yarisma verisi bulunamadi - Add Input'tan yarisma datasetini ekle"
+assert IDS_DIR, "band_ids dosyalari bulunamadi - cloud-judge-inputs datasetini ekle"
 
 SYS = ("Sen Trendyol arama-alaka uzmanısın. Verilen (sorgu | ürün) çifti için ürünün "
        "aramanın MAKUL bir sonucu olup olmadığına karar ver. KURALLAR: Sorgu marka "
