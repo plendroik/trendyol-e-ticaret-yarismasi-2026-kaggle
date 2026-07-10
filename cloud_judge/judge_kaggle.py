@@ -13,7 +13,7 @@ import subprocess, sys
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "vllm"], check=True)
 
 PART = 1                       # <<< HANGI PARCA (1..4) - hesap basina bir parca
-MODEL = "Qwen/Qwen3-14B-AWQ"   # 2xT4'e rahat sigar; istege: Qwen/Qwen3-32B-AWQ
+MODEL = "Qwen/Qwen3-8B"   # T4 (CC7.5) quant kernelleri sevmiyor -> fp16 8B en guvenlisi
 
 import os, re, glob, random
 import numpy as np, pandas as pd
@@ -63,7 +63,7 @@ sub_idx = sub.set_index("id")
 
 print("Model yukleniyor (5-10 dk)...")
 llm = LLM(model=MODEL, tensor_parallel_size=2, max_model_len=1024,
-          gpu_memory_utilization=0.92, dtype="float16")
+          gpu_memory_utilization=0.90, dtype="float16", enforce_eager=True)
 sp = SamplingParams(temperature=0.0, max_tokens=4)
 
 def judge(pairs):
