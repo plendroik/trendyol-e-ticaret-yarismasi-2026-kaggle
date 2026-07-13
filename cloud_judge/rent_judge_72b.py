@@ -1,23 +1,17 @@
 # =============================================================================
 # KIRALIK A100/H100 icin 72B HAKEM — tum bandi (577k) etiketler.
 # Acik-kaynak Qwen2.5-72B-Instruct-AWQ (self-host, kurallara uygun).
-# A100 80GB'a sigar (AWQ ~40GB + KV cache). AWQ A100'de calisir (T4'te calismaz).
-#
-# GEREKLI DOSYALAR (bu klasorde): band_input.parquet, exam_input.parquet
-# CIKTI: labels_72b.csv  (id,label)  -> resume-safe
-#
-# KURULUM (RunPod/Vast, tek seferlik):
-#   pip install -q vllm pandas pyarrow
-#   python rent_judge_72b.py
+# GEREKLI: band_input.parquet, exam_input.parquet (ayni klasorde)
+# CIKTI: labels_72b.csv  (resume-safe)
+#   pip install -q vllm pandas pyarrow  &&  python rent_judge_72b.py
 # =============================================================================
 import os, re, time
 import numpy as np, pandas as pd
 from vllm import LLM, SamplingParams
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-MODEL = "Qwen/Qwen2.5-72B-Instruct-AWQ"   # daha hizli/ucuz istersen: Qwen/Qwen2.5-32B-Instruct-AWQ
+MODEL = "Qwen/Qwen2.5-72B-Instruct-AWQ"   # daha hizli: Qwen/Qwen2.5-32B-Instruct-AWQ
 
-# dengeli prompt (asiri comert DEGIL): 8B'de 0.90/0.08 verdi, 72B'de 0.95+/0.03 bekleriz
 SYS = ("Sen Trendyol arama-alaka uzmanısın. Verilen (sorgu | ürün) çifti için ürünün "
        "aramanın MAKUL bir sonucu olup olmadığına karar ver. KURALLAR: Sorgu marka "
        "ise (yazım hatalı olsa bile) o markanın her ürünü 1. Sorgu kategori ise o "
@@ -38,45 +32,50 @@ FEWSHOT = [
 def log(m): print(f"[{time.strftime('%H:%M:%S')}] {m}", flush=True)
 
 
-log(f"Model yukleniyor: {MODEL} (indirme+yukleme ~10-20 dk)...")
-llm = LLM(model=MODEL, tensor_parallel_size=1, max_model_len=1024,
-          gpu_memory_utilization=0.92, quantization="awq_marlin")
-sp = SamplingParams(temperature=0.0, max_tokens=4)
+def main():
+    log(f"Model yukleniyor: {MODEL} ...")
+    llm = LLM(model=MODEL, tensor_parallel_size=1, max_model_len=1024,
+              gpu_memory_utilization=0.92, quantization="awq_marlin")
+    sp = SamplingParams(temperature=0.0, max_tokens=4)
 
-
-def judge(texts):
     shots = []
     for fq, fl in FEWSHOT:
         shots += [{"role": "user", "content": fq}, {"role": "assistant", "content": fl}]
-    msgs = [[{"role": "system", "content": SYS}] + shots + [{"role": "user", "content": t}]
-            for t in texts]
-    outs = llm.chat(msgs, sp)
-    return [int(m.group(0)) if (m := re.search(r"[01]", o.outputs[0].text)) else 1 for o in outs]
+
+    def judge(texts):
+        msgs = [[{"role": "system", "content": SYS}] + shots + [{"role": "user", "content": t}]
+                for t in texts]
+        outs = llm.chat(msgs, sp)
+        return [int(m.group(0)) if (m := re.search(r"[01]", o.outputs[0].text)) else 1 for o in outs]
+
+    # ---- SINAV ----
+    ex = pd.read_parquet(os.path.join(HERE, "exam_input.parquet"))
+    pr = np.array(judge(ex["text"].tolist())); gt = ex["label"].to_numpy()
+    rec = pr[gt == 1].mean(); fpr = pr[gt == 0].mean()
+    log(f"SINAV: RECALL={rec:.3f} FPR={fpr:.3f} (hedef >=0.93 / <=0.06)")
+    if rec < 0.90 or fpr > 0.08:
+        raise SystemExit("SINAV zayif - promptu/modeli degistir.")
+
+    # ---- ETIKETLEME (resume-safe) ----
+    band = pd.read_parquet(os.path.join(HERE, "band_input.parquet"))
+    OUT = os.path.join(HERE, "labels_72b.csv")
+    done = set(pd.read_csv(OUT)["id"].astype(str)) if os.path.exists(OUT) else set()
+    todo = band[~band["id"].astype(str).isin(done)].reset_index(drop=True)
+    log(f"band: {len(band):,}  kalan: {len(todo):,}")
+    f = open(OUT, "a", encoding="utf-8")
+    if not done:
+        f.write("id,label\n")
+    B = 4000; t0 = time.time()
+    for b in range(0, len(todo), B):
+        chunk = todo.iloc[b:b + B]
+        labs = judge(chunk["text"].tolist())
+        for cid, l in zip(chunk["id"], labs):
+            f.write(f"{cid},{l}\n")
+        f.flush()
+        d = b + len(chunk); el = time.time() - t0
+        log(f"{d}/{len(todo)}  {d/el:.1f} cift/sn  ETA {(len(todo)-d)/max(d/el,1e-9)/3600:.1f} sa")
+    log("BITTI -> labels_72b.csv")
 
 
-# ---- SINAV ----
-ex = pd.read_parquet(os.path.join(HERE, "exam_input.parquet"))
-pr = np.array(judge(ex["text"].tolist())); gt = ex["label"].to_numpy()
-rec = pr[gt == 1].mean(); fpr = pr[gt == 0].mean()
-log(f"SINAV: RECALL={rec:.3f} FPR={fpr:.3f} (hedef >=0.93 / <=0.06)")
-if rec < 0.90 or fpr > 0.08:
-    raise SystemExit("SINAV zayif - promptu/modeli degistir.")
-
-# ---- ETIKETLEME (resume-safe) ----
-band = pd.read_parquet(os.path.join(HERE, "band_input.parquet"))
-OUT = os.path.join(HERE, "labels_72b.csv")
-done = set(pd.read_csv(OUT)["id"].astype(str)) if os.path.exists(OUT) else set()
-todo = band[~band["id"].astype(str).isin(done)].reset_index(drop=True)
-log(f"band: {len(band):,}  kalan: {len(todo):,}")
-f = open(OUT, "a", encoding="utf-8")
-if not done: f.write("id,label\n")
-B = 4000; t0 = time.time()
-for b in range(0, len(todo), B):
-    chunk = todo.iloc[b:b + B]
-    labs = judge(chunk["text"].tolist())
-    for cid, l in zip(chunk["id"], labs):
-        f.write(f"{cid},{l}\n")
-    f.flush()
-    d = b + len(chunk); el = time.time() - t0
-    log(f"{d}/{len(todo)}  {d/el:.1f} cift/sn  ETA {(len(todo)-d)/max(d/el,1e-9)/3600:.1f} sa")
-log("BITTI -> labels_72b.csv")
+if __name__ == "__main__":
+    main()
