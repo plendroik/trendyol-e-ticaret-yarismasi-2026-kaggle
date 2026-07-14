@@ -66,6 +66,26 @@ def main():
     assert TRAIN_PARQUET_PATH, "train_text.parquet bulunamadi. Lutfen Kaggle'a dataset olarak ekleyin."
     
     log(f"Model yukleniyor: {MODEL}")
+    
+    import threading
+    stop_monitor = threading.Event()
+    def monitor_download():
+        cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
+        os.makedirs(cache_dir, exist_ok=True)
+        last_size = 0
+        t0 = time.time()
+        while not stop_monitor.is_set():
+            size = sum(os.path.getsize(os.path.join(r, f)) for r, d, files in os.walk(cache_dir) for f in files)
+            dt = time.time() - t0
+            speed = (size - last_size) / dt if dt > 0 else 0
+            log(f"  [Monitor] HF Cache size: {size/(1024*1024):.2f} MB (+{(size-last_size)/(1024*1024):.2f} MB) | Speed: {speed/(1024*1024):.2f} MB/s")
+            last_size = size
+            t0 = time.time()
+            time.sleep(5)
+            
+    monitor_thread = threading.Thread(target=monitor_download, daemon=True)
+    monitor_thread.start()
+
     tok = AutoTokenizer.from_pretrained(MODEL)
     
     def coll_tr(b):
@@ -88,6 +108,7 @@ def main():
 
     # Model yukleme
     model = AutoModelForSequenceClassification.from_pretrained(MODEL, num_labels=2)
+    stop_monitor.set()
     
     # Tek GPU kullanimi (Kaggle'da DataParallel NCCL kilitlenmelerini engellemek icin)
     dev = "cuda:0"
