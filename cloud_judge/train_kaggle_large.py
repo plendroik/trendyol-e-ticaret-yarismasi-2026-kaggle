@@ -86,13 +86,15 @@ def main():
     monitor_thread = threading.Thread(target=monitor_download, daemon=True)
     monitor_thread.start()
 
-    # Kaggle input altinda xlm-roberta-large dataset'i ekli ise yerel yoldan yukle (internetsiz)
+    # Kaggle input altinda xlm-roberta-large veya benzeri model dataset'i ekli ise yerel yoldan yukle (internetsiz)
     model_path = MODEL
     for root, dirs, files in os.walk("/kaggle/input"):
-        if "pytorch_model.bin" in files and ("xlm-roberta-large" in root.lower() or "xlmrobertalarge" in root.lower()):
-            model_path = root
-            log(f"Yerel model dosyalari bulundu: {model_path} (Egitim internetsiz/offline baslayacak)")
-            break
+        if ("pytorch_model.bin" in files or "model.safetensors" in files) and "config.json" in files:
+            r_low = root.lower()
+            if "roberta" in r_low or "xlm" in r_low or "deberta" in r_low:
+                model_path = root
+                log(f"Yerel model dosyalari bulundu: {model_path} (Egitim internetsiz/offline baslayacak)")
+                break
 
     tok = AutoTokenizer.from_pretrained(model_path, local_files_only=(model_path != MODEL))
     
