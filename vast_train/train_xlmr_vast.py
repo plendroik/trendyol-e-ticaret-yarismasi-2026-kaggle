@@ -37,7 +37,7 @@ def main():
 
     log("Veri...")
     tr = pd.read_parquet(os.path.join(HERE, "train_text.parquet"))
-    te = pd.read_parquet(os.path.join(HERE, "test_text.parquet"))
+    te = pd.concat([pd.read_parquet(os.path.join(HERE,f"test_text_part{k}.parquet")) for k in range(4)],ignore_index=True)
     trn = tr[tr.fold != HOLDOUT].reset_index(drop=True)
     hol = tr[tr.fold == HOLDOUT].reset_index(drop=True)
     log(f"train={len(trn):,} holdout={len(hol):,} test={len(te):,}")
