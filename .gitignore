@@ -42,3 +42,4 @@ gemini_key.txt
 
 # ajan hakem ciktilari repoda kalsin
 !claude_judge*/outputs/*.csv
+vast_train/test_text.parquet
