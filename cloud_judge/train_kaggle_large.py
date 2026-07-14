@@ -13,7 +13,14 @@
 #   3. Bu kodu tek hucreye yapistirip calistirin.
 #   4. Ciktilari (/kaggle/working/ altindaki .npy dosyalarini) indirip repoya yukleyin.
 # =============================================================================
-import os, time, numpy as np, pandas as pd, torch
+import subprocess, sys, os
+try:
+    import hf_transfer
+except ImportError:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "hf-transfer"], check=True)
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+
+import time, numpy as np, pandas as pd, torch
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, get_cosine_schedule_with_warmup
 
