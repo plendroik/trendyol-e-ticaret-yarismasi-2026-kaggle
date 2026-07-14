@@ -27,8 +27,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, get_
 # Model ve hiperparametre ayarları
 MODEL = "xlm-roberta-large"
 MAXLEN = 160
-BATCH_SIZE = 16          # Cift GPU (2x T4) icin uygun batch size
-ACCUMULATION_STEPS = 2   # Efektif batch size = 16 * 2 * 2 (GPUs) = 64
+BATCH_SIZE = 8           # Single T4 GPU icin kararlı size (VRAM sığması için)
+ACCUMULATION_STEPS = 4   # Efektif batch size = 8 * 4 = 32
 EPOCHS = 2
 LR = 7e-6                # Kararli ogrenme orani
 HOLDOUT = 4
@@ -89,10 +89,8 @@ def main():
     # Model yukleme
     model = AutoModelForSequenceClassification.from_pretrained(MODEL, num_labels=2)
     
-    # Cift GPU (DataParallel) kullanimi
-    if torch.cuda.device_count() > 1:
-        log(f"Cift GPU algilandi: {torch.cuda.device_count()} GPUs. DataParallel aktif.")
-        model = torch.nn.DataParallel(model)
+    # Tek GPU kullanimi (Kaggle'da DataParallel NCCL kilitlenmelerini engellemek icin)
+    dev = "cuda:0"
     model = model.to(dev)
     
     dl = DataLoader(DS(trn.q.tolist(), trn.d.tolist(), trn.label.to_numpy()),
