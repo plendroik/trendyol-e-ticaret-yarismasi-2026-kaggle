@@ -89,7 +89,7 @@ def main():
     model = model.to(dev)
     
     dl = DataLoader(DS(trn.q.tolist(), trn.d.tolist(), trn.label.to_numpy()),
-                    batch_size=BATCH_SIZE, shuffle=True, collate_fn=coll_tr, num_workers=4, pin_memory=True)
+                    batch_size=BATCH_SIZE, shuffle=True, collate_fn=coll_tr, num_workers=0, pin_memory=True)
                     
     opt = torch.optim.AdamW(model.parameters(), lr=LR, weight_decay=0.01)
     steps = len(dl) * EPOCHS // ACCUMULATION_STEPS
@@ -126,7 +126,7 @@ def main():
     def score(df):
         model.eval()
         dl = DataLoader(DS(df.q.tolist(), df.d.tolist()), batch_size=BATCH_SIZE * 4, collate_fn=coll_te,
-                        num_workers=4, pin_memory=True)
+                        num_workers=0, pin_memory=True)
         out = np.zeros(len(df), np.float32)
         p = 0
         for b in dl:
