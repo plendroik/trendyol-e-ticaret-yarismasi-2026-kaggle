@@ -18,7 +18,7 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, get_cosine_schedule_with_warmup
 
 # Model ve hiperparametre ayarları
-MODEL = "microsoft/mdeberta-v3-large"  # Alternatif: "xlm-roberta-large"
+MODEL = "xlm-roberta-large"
 MAXLEN = 160
 BATCH_SIZE = 16          # Cift GPU (2x T4) icin uygun batch size
 ACCUMULATION_STEPS = 2   # Efektif batch size = 16 * 2 * 2 (GPUs) = 64
