@@ -55,21 +55,19 @@ def main():
     OUT = os.path.join(HERE, f"clean_labels_72b_append.csv")
     
     log("Veriler yukleniyor...")
-    sub = pd.read_csv(os.path.join(DATA_DIR, "submission_pairs.csv"))
-    terms = pd.read_csv(os.path.join(DATA_DIR, "terms.csv"))
-    items = pd.read_csv(os.path.join(DATA_DIR, "items.csv"))
+    te_dfs = []
+    for k in range(4):
+        p_path = os.path.join(HERE, f"test_text_part{k}.parquet")
+        te_dfs.append(pd.read_parquet(p_path, columns=["id", "q", "d"]))
+    te_df = pd.concat(te_dfs, ignore_index=True)
     
-    term2q = dict(zip(terms.term_id, terms["query"].fillna("").astype(str)))
-    itxt = {r.item_id: prod_text(r.title, r.category, r.attributes, r.brand, r.gender)
-            for r in items.itertuples(index=False)}
-            
-    ids = sub["id"].astype(str).to_numpy()
-    tids = sub["term_id"].to_numpy()
-    iids = sub["item_id"].to_numpy()
+    ids = te_df["id"].astype(str).to_numpy()
+    queries = te_df["q"].fillna("").astype(str).to_numpy()
+    docs = te_df["d"].fillna("").astype(str).to_numpy()
 
     # Mevcut etiketlenmis çiftleri yukle (tekrar etiketlememek icin)
     already_labeled = set()
-    labels_file = os.path.join(DATA_DIR, "clean_labels_72b.csv")
+    labels_file = os.path.join(DATA_DIR, "etiketliveri", "clean_labels_72b.csv")
     if os.path.exists(labels_file):
         already_labeled = set(pd.read_csv(labels_file)["id"].astype(str))
         log(f"Mevcut etiketli çift sayısı: {len(already_labeled):,}")
@@ -110,8 +108,8 @@ def main():
     todo_ids = []
     
     for idx in todo_indices:
-        q = term2q.get(tids[idx], "")
-        p = itxt.get(iids[idx], "")
+        q = queries[idx]
+        p = docs[idx]
         
         # Qwen-Instruct chat formatina uygun sekilde prompt hazirla
         prompt_text = f"<|im_start|>system\n{SYS}<|im_end|>\n<|im_start|>user\nSorgu: {q} | Ürün: {p}<|im_end|>\n<|im_start|>assistant\n"
