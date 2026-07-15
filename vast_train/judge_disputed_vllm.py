@@ -116,9 +116,22 @@ def main():
         formatted_prompts.append(prompt_text)
         todo_ids.append(ids[idx])
 
+    # Vast.ai imajinda onceden calisan vLLM sunucusunu durdur (VRAM bosaltmak icin)
+    import subprocess as _sp
+    log("Onceden calisan vLLM/GPU islemlerini durduruluyor (VRAM bosaltiliyor)...")
+    _sp.run("pkill -9 -f vllm || true", shell=True)
+    _sp.run("pkill -9 -f 'python.*serve' || true", shell=True)
+    time.sleep(5)
+    import gc; gc.collect()
+    try:
+        import torch; torch.cuda.empty_cache()
+    except: pass
+    log("VRAM bosaltildi. Model yukleniyor...")
+
     # vLLM baslatma
     log(f"vLLM yukleniyor: {LLM_MODEL}...")
-    llm = LLM(model=LLM_MODEL, quantization="awq", tensor_parallel_size=1, max_model_len=1024)
+    llm = LLM(model=LLM_MODEL, quantization="awq", tensor_parallel_size=1,
+              max_model_len=1024, gpu_memory_utilization=0.90)
     sampling_params = SamplingParams(temperature=0.0, max_tokens=3)
 
     log("Batch tahminleme basliyor (vLLM)...")
