@@ -119,8 +119,9 @@ def main():
     # Vast.ai imajinda onceden calisan vLLM sunucusunu durdur (VRAM bosaltmak icin)
     import subprocess as _sp
     log("Onceden calisan vLLM/GPU islemlerini durduruluyor (VRAM bosaltiliyor)...")
-    _sp.run("pkill -9 -f vllm || true", shell=True)
-    _sp.run("pkill -9 -f 'python.*serve' || true", shell=True)
+    my_pid = str(os.getpid())
+    _sp.run(f"pgrep -f 'vllm' | grep -v {my_pid} | xargs -r kill -9 2>/dev/null || true", shell=True)
+    _sp.run("pgrep -f 'triton' | xargs -r kill -9 2>/dev/null || true", shell=True)
     time.sleep(5)
     import gc; gc.collect()
     try:
