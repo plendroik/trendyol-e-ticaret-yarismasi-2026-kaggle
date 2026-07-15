@@ -138,6 +138,24 @@ def main():
     df_out = pd.DataFrame(new_labels)
     df_out.to_csv(OUT, index=False)
     log(f"Etiketler basariyla kaydedildi: {OUT}")
+    
+    # tmpfiles.org sitesine otomatik yukleyip indirme linkini ekrana yazdir
+    import subprocess
+    try:
+        log("Cikti dosyasi tmpfiles.org sitesine yukleniyor...")
+        cmd = f'curl -s -F "file=@{OUT}" https://tmpfiles.org/api/v1/upload'
+        res = subprocess.check_output(cmd, shell=True).decode("utf-8")
+        data = json.loads(res)
+        if data.get("status") == "success":
+            url = data["data"]["url"]
+            dl_url = url.replace("https://tmpfiles.org/", "https://tmpfiles.org/dl/")
+            log(f"*** INDIRME LINKINIZ HAZIR (Direkt tiklayip indirin): {dl_url} ***")
+        else:
+            log(f"Yükleme basarisiz oldu: {res}")
+    except Exception as e:
+        log(f"Otomatik yukleme hatasi: {e}")
+        log(f"Yerel olarak indirmek isterseniz: curl -F \"file=@{OUT}\" https://tmpfiles.org/api/v1/upload")
+        
     log("Islem tamamlandi!")
 
 if __name__ == "__main__":
