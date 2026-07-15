@@ -18,7 +18,7 @@ ART_DIR = os.path.join(os.path.dirname(HERE), "artifacts")
 DATA_DIR = os.path.dirname(HERE)
 
 # Kullanılacak acik kaynakli büyük model (RTX 3090/4090'a sigmasi icin AWQ 4-bit)
-LLM_MODEL = "Qwen/Qwen2.5-14B-Instruct-AWQ"
+LLM_MODEL = "Qwen/Qwen2.5-7B-Instruct-AWQ"
 
 SYS = ("Sen Trendyol arama-alaka hakemisin. Ürün, sorgunun MAKUL bir sonucu mu? "
        "Kurallar: Sorgu marka ise o markanın her ürünü 1. Sorgu kategori ise o "
